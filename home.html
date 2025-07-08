@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding of Minh & Trinh</title>
+
+    <!-- Chosen Palette: Warm Neutrals & Soft Gold -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Animate on Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FDFBF8;
+            color: #5D5D5D;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        /* New class to block scrolling */
+        body.no-scroll {
+            overflow: hidden;
+        }
+        h1, h2, h3, h4, h5, h6, .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .bg-primary { background-color: #FDFBF8; }
+        .bg-secondary { background-color: #F1EBE5; }
+        .text-accent { color: #A8876E; }
+        .border-accent { border-color: #A8876E; }
+        .ring-accent { ring-color: #A8876E; }
+        .btn-primary {
+            background-color: #A8876E;
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px -5px rgba(168, 135, 110, 0.5);
+        }
+        .btn-primary:hover {
+            background-color: #8E6F58;
+            box-shadow: 0 6px 20px -5px rgba(168, 135, 110, 0.7);
+            transform: translateY(-2px);
+        }
+        .photo-gallery-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .photo-gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+        }
+        #invitation-overlay {
+            transition: opacity 1s ease;
+        }
+        #main-content {
+            transition: opacity 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Animate on Scroll Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        // --- Helper Components ---
+        const PlayIcon = () => (
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M4.018 15.132l11.964-6.63-11.964-6.631v13.261z"></path></svg>
+        );
+        const PauseIcon = () => (
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M5 16h3V4H5v12zm7-12v12h3V4h-3z"></path></svg>
+        );
+
+        // --- Sectional Components (Now with Mobile-First Responsive Classes) ---
+
+        const InvitationOverlay = ({ onOpen }) => (
+            <div id="invitation-overlay" className="fixed inset-0 bg-primary z-50 flex flex-col items-center justify-center text-center p-4">
+                <div data-aos="fade-up">
+                    <h2 className="text-3xl md:text-4xl font-display text-accent">Wedding Invitation</h2>
+                    <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">Minh &#128150; Trinh</h1>
+                    <p className="mb-8 text-base md:text-lg">We are getting married!</p>
+                    <button onClick={onOpen} className="btn-primary font-display text-lg md:text-xl px-8 py-3 rounded-full">
+                        Open Invitation
+                    </button>
+                </div>
+            </div>
+        );
+
+        const MusicPlayer = ({ audioRef, isPlaying, onPlayPause }) => (
+            <div id="music-player" className="fixed bottom-4 right-4 z-40">
+                <audio ref={audioRef} src="https://cdn.pixabay.com/download/audio/2025/06/09/audio_ffe6e5f7d0.mp3?filename=romantic-wedding-background-music-357203.mp3" loop></audio>
+                <button onClick={onPlayPause} className="w-12 h-12 bg-accent/80 text-white rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm">
+                    {isPlaying ? <PauseIcon /> : <PlayIcon />}
+                </button>
+            </div>
+        );
+
+        const Header = () => (
+            <header className="h-screen min-h-[568px] bg-cover bg-center bg-fixed flex items-center justify-center text-white" style={{backgroundImage: "url('https://placehold.co/1200x800/e2e8f0/667eea?text=Our+Photo')"}}>
+                <div className="bg-black/40 inset-0 absolute"></div>
+                <div className="relative text-center p-4" data-aos="fade-in" data-aos-delay="500">
+                    <p className="text-lg md:text-2xl font-light">WE'RE GETTING MARRIED</p>
+                    <h1 className="text-6xl sm:text-7xl md:text-9xl font-display my-2">Anh Minh & Thanh Trinh</h1>
+                    <p className="text-lg md:text-2xl font-light">October 19, 2025</p>
+                </div>
+            </header>
+        );
+
+        const CoupleSection = () => (
+            <section id="couple" className="py-16 px-4 md:py-24 md:px-8 text-center">
+                <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">The Happy Couple</h2>
+                <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
+                <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-center mt-12">
+                    <div className="text-center" data-aos="fade-right" data-aos-delay="200">
+                        <img src="https://placehold.co/400x400/e2e8f0/667eea?text=Groom" alt="The Groom" className="w-40 h-40 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-xl"/>
+                        <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">Anh Minh</h3>
+                        <p className="mt-2 text-sm md:text-base">Son of Mr. Lê Văn Hùng & Mrs. Trần Thị Lan</p>
+                    </div>
+                    <div className="text-center mt-8 md:mt-0" data-aos="fade-left" data-aos-delay="200">
+                        <img src="https://placehold.co/400x400/e2e8f0/667eea?text=Bride" alt="The Bride" className="w-40 h-40 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-xl"/>
+                        <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">Thanh Trinh</h3>
+                        <p className="mt-2 text-sm md:text-base">Daughter of Mr. Nguyễn Văn Dũng & Mrs. Phạm Thị Hoa</p>
+                    </div>
+                </div>
+            </section>
+        );
+        
+        const Countdown = () => {
+            const calculateTimeLeft = () => {
+                const difference = +new Date("2025-10-19T14:00:00") - +new Date(); // Updated date
+                let timeLeft = {};
+                if (difference > 0) {
+                    timeLeft = {
+                        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                        minutes: Math.floor((difference / 1000 / 60) % 60),
+                        seconds: Math.floor((difference / 1000) % 60)
+                    };
+                }
+                return timeLeft;
+            };
+
+            const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+            useEffect(() => {
+                const timer = setTimeout(() => setTimeLeft(calculateTimeLeft()), 1000);
+                return () => clearTimeout(timer);
+            });
+
+            const timerComponents = Object.keys(timeLeft).map(interval => (
+                <div key={interval}>
+                    <p className="text-4xl sm:text-5xl md:text-7xl font-display">{String(timeLeft[interval]).padStart(2, '0')}</p>
+                    <p className="text-xs sm:text-sm md:text-lg capitalize">{interval}</p>
+                </div>
+            ));
+
+            return (
+                <section id="countdown" className="bg-secondary text-center">
+                    <div className="bg-cover bg-center py-16 md:py-20 text-white" style={{backgroundImage: "url('https://placehold.co/1200x400/333/fff?text=Love+Story')", backgroundAttachment: 'fixed'}}>
+                        <div className="bg-black/50 inset-0 absolute"></div>
+                        <div className="relative">
+                            <h2 className="text-3xl md:text-5xl font-display mb-8 px-2" data-aos="fade-up">Until We Say 'I Do'</h2>
+                            <div className="flex justify-center space-x-3 sm:space-x-6 md:space-x-12 text-center" data-aos="fade-up" data-aos-delay="200">
+                                {timerComponents.length ? timerComponents : <p className="text-3xl md:text-4xl font-display">We tied the knot!</p>}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const EventsSection = () => (
+             <section id="events" className="py-16 px-4 md:py-24 md:px-8 text-center">
+                <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Wedding Events</h2>
+                <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
+                <p className="max-w-2xl mx-auto mb-12 text-sm md:text-base" data-aos="fade-up" data-aos-delay="200">
+                    Your presence at our wedding is the greatest gift of all. However, should you wish to honour us with a gift, a wishing well will be available at the reception for your contribution and best wishes.
+                </p>
+                <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                    <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg" data-aos="fade-up-right">
+                        <h3 className="text-2xl md:text-3xl font-display text-accent">Wedding Ceremony</h3>
+                        <p className="my-4 text-sm md:text-base">October 19, 2025<br/>2:00 PM</p> {/* Updated date */}
+                        <p className="font-semibold">The White Palace</p>
+                        <p className="text-sm">123 Wedding Ave, District 1, Ho Chi Minh City</p>
+                        <a href="https://maps.google.com" target="_blank" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">View Map</a>
+                    </div>
+                    <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg mt-8 md:mt-0" data-aos="fade-up-left">
+                        <h3 className="text-2xl md:text-3xl font-display text-accent">Reception Party</h3>
+                        <p className="my-4 text-sm md:text-base">October 19, 2025<br/>6:00 PM</p> {/* Updated date */}
+                        <p className="font-semibold">Gem Center</p>
+                        <p className="text-sm">456 Celebration St, District 3, Ho Chi Minh City</p>
+                        <a href="https://maps.google.com" target="_blank" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">View Map</a>
+                    </div>
+                </div>
+            </section>
+        );
+        
+        const GallerySection = () => {
+            const photos = [
+                { src: 'https://placehold.co/600x400/e2e8f0/667eea?text=Photo+1' },
+                { src: 'https://placehold.co/600x800/e2e8f0/667eea?text=Photo+2' },
+                { src: 'https://placehold.co/600x400/e2e8f0/667eea?text=Photo+3' },
+                { src: 'https://placehold.co/600x800/e2e8f0/667eea?text=Photo+4' },
+                { src: 'https://placehold.co/600x400/e2e8f0/667eea?text=Photo+5' },
+                { src: 'https://placehold.co/600x800/e2e8f0/667eea?text=Photo+6' }
+            ];
+            return (
+                <section id="gallery" className="py-16 px-4 md:py-24 md:px-8 bg-secondary text-center">
+                    <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Our Moments</h2>
+                    <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
+                    <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 mt-12">
+                        {photos.map((photo, index) => (
+                            <div key={index} data-aos="fade-up" data-aos-delay={(index % 3) * 100}>
+                                <img src={photo.src} className="photo-gallery-img rounded-lg w-full h-full object-cover" alt={`Gallery photo ${index + 1}`} />
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            );
+        };
+
+        const GuestbookSection = () => {
+            const [name, setName] = useState('');
+            const [message, setMessage] = useState('');
+            const [wishes, setWishes] = useState([
+              { id: 1, name: 'Sample Guest', message: "This is a sample message. Can't wait for the big day!" }
+            ]);
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                if (!name || !message) return;
+                const newWish = { id: Date.now(), name, message };
+                console.log("Submitting to Firebase (simulation):", newWish);
+                // Replaced alert with a console log for demonstration purposes
+                console.log(`Thank you, ${name}! Your message has been received (simulation).`);
+                setWishes([newWish, ...wishes]);
+                setName('');
+                setMessage('');
+            };
+
+            return (
+                <section id="guestbook" className="py-16 px-4 md:py-24 md:px-8 text-center">
+                    <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Guest Book</h2>
+                    <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
+                    <p className="max-w-2xl mx-auto mb-12 text-sm md:text-base" data-aos="fade-up" data-aos-delay="200">
+                        Leave us a message! We'd love to hear your wishes for our new journey together.
+                    </p>
+                    <div className="max-w-2xl mx-auto bg-white p-6 md:p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                        <form onSubmit={handleSubmit}>
+                            <div className="mb-4">
+                                <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your Name" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-accent text-sm md:text-base" required />
+                            </div>
+                            <div className="mb-4">
+                                <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Your Message" rows="4" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-accent text-sm md:text-base" required></textarea>
+                            </div>
+                            <button type="submit" className="btn-primary font-display text-lg px-8 py-3 rounded-full w-full">Send Wish</button>
+                        </form>
+                    </div>
+                    
+                    <div className="max-w-2xl mx-auto mt-12 space-y-4">
+                        {wishes.map(wish => (
+                            <div key={wish.id} className="bg-white p-4 rounded-lg shadow-sm text-left animate-fade-in">
+                                <p className="font-semibold text-accent">{wish.name}</p>
+                                <p className="text-sm">{wish.message}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            );
+        };
+
+        const Footer = () => (
+            <footer className="text-center py-8 bg-secondary">
+                <h3 className="text-3xl md:text-4xl font-display text-accent">Thank You</h3>
+                <p className="mt-2">Anh Minh & Thanh Trinh</p> {/* Updated names */}
+            </footer>
+        );
+
+
+        // --- Main App Component ---
+        function App() {
+            const [isInvitationOpen, setIsInvitationOpen] = useState(false);
+            const [isPlaying, setIsPlaying] = useState(false);
+            const audioRef = useRef(null);
+
+            useEffect(() => {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    disable: 'mobile' // Optionally disable animations on mobile for performance
+                });
+            }, []);
+
+            // Effect to control body scrolling
+            useEffect(() => {
+                if (!isInvitationOpen) {
+                    // If invitation is not open, block scrolling
+                    document.body.classList.add('no-scroll');
+                } else {
+                    // If invitation is open, allow scrolling
+                    document.body.classList.remove('no-scroll');
+                }
+                // Cleanup function to ensure scrolling is re-enabled if component unmounts
+                return () => {
+                    document.body.classList.remove('no-scroll');
+                };
+            }, [isInvitationOpen]); // Re-run effect when isInvitationOpen changes
+
+
+            const handleOpenInvitation = () => {
+                setIsInvitationOpen(true);
+                audioRef.current.play().catch(e => console.error("Autoplay failed", e));
+                setIsPlaying(true);
+            };
+
+            const handlePlayPause = () => {
+                if (isPlaying) {
+                    audioRef.current.pause();
+                } else {
+                    audioRef.current.play();
+                }
+                setIsPlaying(!isPlaying);
+            };
+
+            return (
+                <React.Fragment>
+                    {!isInvitationOpen && <InvitationOverlay onOpen={handleOpenInvitation} />}
+                    
+                    <div id="main-content" className={isInvitationOpen ? 'opacity-100' : 'opacity-0'}>
+                        <MusicPlayer audioRef={audioRef} isPlaying={isPlaying} onPlayPause={handlePlayPause} />
+                        <Header />
+                        <main>
+                            <CoupleSection />
+                            <Countdown />
+                            <EventsSection />
+                            <GallerySection />
+                            <GuestbookSection />
+                        </main>
+                        <Footer />
+                    </div>
+                </React.Fragment>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+
+    </script>
+</body>
+</html>
