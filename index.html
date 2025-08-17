@@ -2,595 +2,675 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding of Minh ♥ Trinh</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding of Minh ♥ Trinh</title>
 
-    <!-- https://biihappy.com/iwedding/sites -->
-    <!-- Chosen Palette: Warm Neutrals & Soft Gold -->
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400&display=swap"
-        rel="stylesheet">
-    <!-- Animate on Scroll Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- https://biihappy.com/iwedding/sites -->
+  <!-- Chosen Palette: Warm Neutrals & Soft Gold -->
 
-    <!-- React Libraries -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400&display=swap"
+    rel="stylesheet" />
 
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #FDFBF8;
-            color: #5D5D5D;
-            overflow-x: hidden;
-            /* Prevent horizontal scroll */
-        }
+  <!-- Animate on Scroll (CSS) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-        /* New class to block scrolling */
-        body.no-scroll {
-            overflow: hidden;
-        }
+  <!-- lightGallery (Lightbox) CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.8.2/css/lightgallery-bundle.min.css" />
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        .font-display {
-            font-family: 'Cormorant Garamond', serif;
-        }
+  <!-- React UMD + Babel (dev friendly) -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-        .bg-primary {
-            background-color: #FDFBF8;
-        }
+  <!-- Preload the hero so it paints faster -->
+  <link rel="preload" as="image" href="./images/header.JPG" imagesizes="100vw" />
 
-        .bg-secondary {
-            background-color: #F1EBE5;
-        }
+  <style>
+    :root {
+      --bg-primary: #FDFBF8;
+      --bg-secondary: #F1EBE5;
+      --accent: #A8876E;
+      --text: #5D5D5D;
+    }
 
-        .text-accent {
-            color: #A8876E;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-        .border-accent {
-            border-color: #A8876E;
-        }
+    body.no-scroll {
+      overflow: hidden;
+    }
 
-        .ring-accent {
-            ring-color: #A8876E;
-        }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .font-display {
+      font-family: 'Cormorant Garamond', serif;
+    }
 
-        .btn-primary {
-            background-color: #A8876E;
-            color: #FFFFFF;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px -5px rgba(168, 135, 110, 0.5);
-        }
+    .bg-primary {
+      background-color: var(--bg-primary);
+    }
 
-        .btn-primary:hover {
-            background-color: #8E6F58;
-            box-shadow: 0 6px 20px -5px rgba(168, 135, 110, 0.7);
-            transform: translateY(-2px);
-        }
+    .bg-secondary {
+      background-color: var(--bg-secondary);
+    }
 
-        .photo-gallery-img {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .text-accent {
+      color: var(--accent);
+    }
 
-        .photo-gallery-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
-        }
+    .border-accent {
+      border-color: var(--accent);
+    }
 
-        #invitation-overlay {
-            transition: opacity 1s ease;
-        }
+    .ring-accent {
+      ring-color: var(--accent);
+    }
 
-        #main-content {
-            transition: opacity 1s ease;
-        }
+    .btn-primary {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px -5px rgba(168, 135, 110, 0.5);
+    }
 
-        /* Pulse animation for visibility */
-        @keyframes pulse-glow {
-            0% {
-                box-shadow: 0 0 0 0 rgba(168, 135, 110, 0.7), 0 0 16px 4px #fff3;
-            }
+    .btn-primary:hover {
+      background-color: #8E6F58;
+      box-shadow: 0 6px 20px -5px rgba(168, 135, 110, 0.7);
+      transform: translateY(-2px);
+    }
 
-            70% {
-                box-shadow: 0 0 0 12px rgba(168, 135, 110, 0), 0 0 32px 8px #fff6;
-            }
+    .photo-gallery-img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-            100% {
-                box-shadow: 0 0 0 0 rgba(168, 135, 110, 0.7), 0 0 16px 4px #fff3;
-            }
-        }
+    .photo-gallery-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    }
 
-        .pulse-glow {
-            animation: pulse-glow 1.5s infinite;
-        }
+    #invitation-overlay {
+      transition: opacity 1s ease;
+    }
 
-        /* Styles for mini calendar */
-        .mini-calendar {
-            width: 100%;
-            max-width: 420px;
-            font-family: 'Poppins', arial, sans-serif;
-        }
+    #main-content {
+      transition: opacity 1s ease;
+    }
 
-        .mini-calendar .calendar-table td,
-        .mini-calendar .calendar-table th {
-            width: 60px;
-            text-align: center;
-            box-sizing: border-box;
-            vertical-align: middle;
-        }
+    @keyframes pulse-glow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(168, 135, 110, 0.7), 0 0 16px 4px #fff3;
+      }
 
-        .mini-calendar .calendar-table thead th {
-            height: 42px;
-            border-top: 1px solid #A8876E;
-            border-bottom: 1px solid #A8876E;
-        }
+      70% {
+        box-shadow: 0 0 0 12px rgba(168, 135, 110, 0), 0 0 32px 8px #fff6;
+      }
 
-        .mini-calendar .calendar-table tbody td {
-            height: 40px;
-            font-size: 0.9rem;
-        }
+      100% {
+        box-shadow: 0 0 0 0 rgba(168, 135, 110, 0.7), 0 0 16px 4px #fff3;
+      }
+    }
 
-        .mini-calendar .calendar-table td {
-            color: #5D5D5D;
-        }
+    .pulse-glow {
+      animation: pulse-glow 1.5s infinite;
+    }
 
-        .mini-calendar .calendar-table .selected-day {
-            background: #A8876E;
-            color: #FDFBF8;
-            font-weight: 900;
-            display: inline-block;
-            width: 40px;
-            line-height: 38px;
-            border-radius: 50%;
-        }
-    </style>
+    /* Mini calendar */
+    .mini-calendar {
+      width: 100%;
+      max-width: 420px;
+      font-family: 'Poppins', arial, sans-serif;
+    }
+
+    .mini-calendar .calendar-table td,
+    .mini-calendar .calendar-table th {
+      width: 60px;
+      text-align: center;
+      box-sizing: border-box;
+      vertical-align: middle;
+    }
+
+    .mini-calendar .calendar-table thead th {
+      height: 42px;
+      border-top: 1px solid var(--accent);
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .mini-calendar .calendar-table tbody td {
+      height: 40px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .mini-calendar .calendar-table .selected-day {
+      background: var(--accent);
+      color: var(--bg-primary);
+      font-weight: 900;
+      display: inline-block;
+      width: 40px;
+      line-height: 38px;
+      border-radius: 50%;
+    }
+
+    /* Stronger highlight for the current slide’s thumbnail in lightGallery */
+    .lg-thumb-outer .lg-thumb-item.active {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px rgba(168, 135, 110, .35);
+      filter: none;
+      /* if you use grayscale on thumbs */
+      border-color: var(--accent) !important;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="root"></div>
+  <div id="root"></div>
 
-    <!-- Animate on Scroll Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Defer non-critical JS libs to avoid blocking parsing -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
+  <!-- lightGallery core + plugins (deferred) -->
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.8.2/lightgallery.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.8.2/plugins/zoom/lg-zoom.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.8.2/plugins/thumbnail/lg-thumbnail.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.8.2/plugins/autoplay/lg-autoplay.min.js" defer></script>
 
-        // --- Helper Components ---
-        const SpeakerMutedIcon = () => (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
-            </svg>
-        );
-        const SpeakerWaveIcon = () => (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
-                <path d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
-            </svg>
-        );
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useMemo } = React;
 
-        // --- Sectional Components (Now with Mobile-First Responsive Classes) ---
-        const InvitationOverlay = ({ onOpen }) => (
-            <div id="invitation-overlay" className="fixed inset-0 bg-primary z-50 flex flex-col items-center justify-center text-center p-4">
-                <div data-aos="fade-up">
-                    <h2 className="text-3xl md:text-4xl font-display text-accent">Wedding Invitation</h2>
-                    <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">Anh Minh</h1>
-                    <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">♥</h1>
-                    <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">Thanh Trinh</h1>
-                    <p className="mb-8 text-base md:text-lg">We are getting married!</p>
-                    <button onClick={onOpen} className="btn-primary font-display text-lg md:text-xl px-8 py-3 rounded-full">
-                        Open Invitation
-                    </button>
-                </div>
-            </div>
-        );
+    // --- Icons ---
+    const SpeakerMutedIcon = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+        <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
+      </svg>
+    );
+    const SpeakerWaveIcon = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+        <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
+        <path d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
+      </svg>
+    );
 
-        const MusicPlayer = ({ audioRef, isPlaying, onPlayPause }) => (
-            <div id="music-player" className="fixed bottom-4 left-4 z-40">
-                <audio ref={audioRef} src="https://cdn.pixabay.com/download/audio/2025/06/09/audio_ffe6e5f7d0.mp3?filename=romantic-wedding-background-music-357203.mp3" loop></audio>
-                <button
-                    onClick={onPlayPause}
-                    className="w-12 h-12 bg-[#A8876E] text-white rounded-full flex items-center justify-center shadow-lg ring-2 ring-accent pulse-glow backdrop-blur-sm"
-                    style={{ transition: 'box-shadow 0.3s' }}
-                >
-                    {isPlaying ? <SpeakerWaveIcon /> : <SpeakerMutedIcon />}
-                </button>
-            </div>
-        );
+    // --- Overlay ---
+    const InvitationOverlay = ({ onOpen }) => (
+      <div id="invitation-overlay" className="fixed inset-0 bg-primary z-50 flex flex-col items-center justify-center text-center p-4">
+        <div data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl font-display text-accent">Wedding Invitation</h2>
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">Anh Minh</h1>
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">♥</h1>
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">Thanh Trinh</h1>
+          <p className="mb-8 text-base md:text-lg">We are getting married!</p>
+          <button onClick={onOpen} className="btn-primary font-display text-lg md:text-xl px-8 py-3 rounded-full">Open Invitation</button>
+        </div>
+      </div>
+    );
 
-        const FloatingActionButton = () => {
-            const [open, setOpen] = useState(false);
-            // Close FAB when clicking outside
-            useEffect(() => {
-                if (!open) return;
-                const handleClick = (e) => {
-                    if (!e.target.closest('#fab-root')) setOpen(false);
-                };
-                document.addEventListener('mousedown', handleClick);
-                return () => document.removeEventListener('mousedown', handleClick);
-            }, [open]);
+    // --- Music ---
+    const MusicPlayer = ({ audioRef, isPlaying, onPlayPause }) => (
+      <div id="music-player" className="fixed bottom-4 left-4 z-40">
+        <audio ref={audioRef} src="https://cdn.pixabay.com/download/audio/2025/06/09/audio_ffe6e5f7d0.mp3?filename=romantic-wedding-background-music-357203.mp3" loop></audio>
+        <button
+          onClick={onPlayPause}
+          className="w-12 h-12 bg-[#A8876E] text-white rounded-full flex items-center justify-center shadow-lg ring-2 ring-accent pulse-glow backdrop-blur-sm"
+          style={{ transition: 'box-shadow 0.3s' }}
+          aria-label={isPlaying ? 'Pause music' : 'Play music'}
+          aria-pressed={isPlaying}
+        >
+          {isPlaying ? <SpeakerWaveIcon /> : <SpeakerMutedIcon />}
+        </button>
+      </div>
+    );
 
-            // Scroll helpers
-            const scrollToSection = (id) => {
-                const el = document.getElementById(id);
-                if (el) {
-                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    setOpen(false);
-                }
-            };
+    // --- FAB ---
+    const MenuOpenIcon = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+        <path fillRule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+      </svg>
+    );
+    const MenuCloseIcon = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+        <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+      </svg>
+    );
 
-            return (
-                <div id="fab-root" className="fixed bottom-4 right-4 z-40 flex flex-col items-end">
-                    {/* Options */}
-                    <div className={`flex flex-col items-end space-y-3 mb-2 transition-all duration-300 ${open ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
-                        <button
-                            onClick={() => scrollToSection('guestbook')}
-                            className="flex items-center px-4 py-2 rounded-full shadow-lg bg-white text-accent font-semibold hover:bg-accent hover:text-white transition-colors text-sm md:text-base"
-                        >
-                            <span className="mr-2">
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z" /></svg>
-                            </span>
-                            Guestbook
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('gallery')}
-                            className="flex items-center px-4 py-2 rounded-full shadow-lg bg-white text-accent font-semibold hover:bg-accent hover:text-white transition-colors text-sm md:text-base"
-                        >
-                            <span className="mr-2">
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" /></svg>
-                            </span>
-                            Send Loves
-                        </button>
-                    </div>
-                    {/* Main FAB */}
-                    <button
-                        onClick={() => setOpen(o => !o)}
-                        className="w-12 h-12 bg-[#A8876E] text-white rounded-full flex items-center justify-center shadow-lg ring-2 ring-accent pulse-glow backdrop-blur-sm"
-                        style={{ transition: 'box-shadow 0.3s' }}
-                        aria-label="Open actions"
-                    >
-                        {open ? <MenuCloseIcon /> : <MenuOpenIcon />}
-                    </button>
-                </div>
-            );
+    const FloatingActionButton = () => {
+      const [open, setOpen] = useState(false);
+      useEffect(() => {
+        if (!open) return;
+        const handleClick = (e) => {
+          if (!e.target.closest('#fab-root')) setOpen(false);
         };
+        document.addEventListener('mousedown', handleClick);
+        return () => document.removeEventListener('mousedown', handleClick);
+      }, [open]);
 
-        const MenuOpenIcon = () => (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
-            </svg>
-        );
-
-        const MenuCloseIcon = () => (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-            </svg>
-        );
-
-        const Header = () => (
-            <header className="h-screen min-h-[568px] bg-cover bg-center bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('./images/header.JPG')" }}>
-                <div className="bg-black/40 inset-0 absolute"></div>
-                <div className="relative text-center p-4" data-aos="fade-in" data-aos-delay="500">
-                    <p className="text-lg md:text-2xl font-light">WE'RE GETTING MARRIED</p>
-                    <h1 className="text-6xl sm:text-7xl md:text-9xl font-display my-2">Minh &#128150; Trinh</h1>
-                    <p className="text-lg md:text-2xl font-light">October 19, 2025</p>
-                </div>
-            </header>
-        );
-
-        const CoupleSection = () => (
-            <section id="couple" className="py-16 px-4 md:py-24 md:px-8 text-center">
-                <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">The Happy Couple</h2>
-                <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
-                <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-center mt-12">
-                    <div className="text-center" data-aos="fade-right" data-aos-delay="200">
-                        <img src="./images/groom.JPG" alt="The Groom" className="w-40 h-40 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-xl" />
-                        <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">Nguyễn Phạm Anh Minh</h3>
-                        <p className="mt-2 text-xs md:text-base">Son of</p>
-                        <p className="mt-2 text-sm md:text-base font-semibold">Mr. Nguyễn Quốc Trường</p>
-                        <p className="mt-2 text-sm md:text-base font-semibold">Mrs. Phạm Lệ Thúy Hoài Châu</p>
-                    </div>
-                    <div className="text-center mt-8 md:mt-0" data-aos="fade-left" data-aos-delay="200">
-                        <img src="./images/bride.JPG" alt="The Bride" className="w-40 h-40 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-xl" />
-                        <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">Lê Thị Thanh Trinh</h3>
-                        <p className="mt-2 text-xs md:text-base">Daughter of</p>
-                        <p className="mt-2 text-sm md:text-base font-semibold">Mr. ABC</p>
-                        <p className="mt-2 text-sm md:text-base font-semibold">Mrs. XYZ</p>
-                    </div>
-                </div>
-            </section>
-        );
-
-        const Countdown = () => {
-            const calculateTimeLeft = () => {
-                const difference = +new Date("2025-10-19T14:00:00") - +new Date();
-                let timeLeft = {};
-                if (difference > 0) {
-                    timeLeft = {
-                        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-                        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                        minutes: Math.floor((difference / 1000 / 60) % 60),
-                        seconds: Math.floor((difference / 1000) % 60)
-                    };
-                }
-                return timeLeft;
-            };
-
-            const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-            useEffect(() => {
-                const timer = setTimeout(() => setTimeLeft(calculateTimeLeft()), 1000);
-                return () => clearTimeout(timer);
-            });
-
-            const timerComponents = Object.keys(timeLeft).map(interval => (
-                <div key={interval}>
-                    <p className="text-4xl sm:text-5xl md:text-7xl font-display">{String(timeLeft[interval]).padStart(2, '0')}</p>
-                    <p className="text-xs sm:text-sm md:text-lg capitalize">{interval}</p>
-                </div>
-            ));
-
-            return (
-                <section id="countdown" className="bg-secondary text-center">
-                    <div className="bg-cover bg-center py-16 md:py-20 text-white relative" style={{ backgroundImage: "url('./images/countdown_bg.JPG')", backgroundAttachment: 'fixed' }}>
-                        <div className="bg-black/50 inset-0 absolute"></div>
-                        <div className="relative">
-                            <h2 className="text-3xl md:text-5xl font-display mb-8 px-2" data-aos="fade-up">Until We Say 'I Do'</h2>
-                            <div className="flex justify-center space-x-3 sm:space-x-6 md:space-x-12 text-center" data-aos="fade-up" data-aos-delay="200">
-                                {timerComponents.length ? timerComponents : <p className="text-3xl md:text-4xl font-display">We tied the knot!</p>}
-                            </div>
-                            {/* --- Mini Calendar Start --- */}
-                            <div className="flex justify-center my-8">
-                                <div className="mini-calendar bg-white rounded-xl shadow-lg m-4 p-4">
-                                    <div className="calendar-header text-center pb-4">
-                                        <span className="text-accent">October 2025</span>
-                                    </div>
-                                    <table className="calendar-table w-full text-center">
-                                        <thead>
-                                            <tr className="text-accent">
-                                                <th className="font-black">Su</th>
-                                                <th className="font-normal">Mo</th>
-                                                <th className="font-normal">Tu</th>
-                                                <th className="font-normal">We</th>
-                                                <th className="font-normal">Th</th>
-                                                <th className="font-normal">Fr</th>
-                                                <th className="font-normal">Sa</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>·</td><td>·</td><td>·</td><td>1</td><td>2</td><td>3</td><td>4</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
-                                            </tr>
-                                            <tr>
-                                                <td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="selected-day">19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
-                                            </tr>
-                                            <tr>
-                                                <td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>·</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            {/* --- Mini Calendar End --- */}
-                        </div>
-                    </div>
-                </section>
-            );
-        };
-
-        const EventsSection = () => (
-            <section id="events" className="py-16 px-4 md:py-24 md:px-8 text-center">
-                <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Wedding Events</h2>
-                <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
-                <p className="max-w-2xl mx-auto mb-12 text-sm md:text-base" data-aos="fade-up" data-aos-delay="200">
-                    Your presence at our wedding is the greatest gift of all. However, should you wish to honour us with a gift, a wishing well will be available at the reception for your contribution and best wishes.
-                </p>
-                <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                    <div className="bg-white p-4 md:p-8 rounded-lg shadow-lg" data-aos="fade-up-right">
-                        <h3 className="text-2xl md:text-3xl font-display text-accent">Wedding Ceremony</h3>
-                        <p className="my-4 text-sm md:text-base">October 19, 2025<br />2:00 PM</p> {/* Updated date */}
-                        <p className="font-semibold">White Palace</p>
-                        <p className="text-sm">194 Hoàng Văn Thụ, Phường 9, Phú Nhuận, TP. Hồ Chí Minh</p>
-                        <a href="https://maps.app.goo.gl/L3SNTu5D35Rs38ts5" target="_blank" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">View Map</a>
-                    </div>
-                    <div className="bg-white p-4 md:p-8 rounded-lg shadow-lg mt-8 md:mt-0" data-aos="fade-up-left">
-                        <h3 className="text-2xl md:text-3xl font-display text-accent">Reception Party</h3>
-                        <p className="my-4 text-sm md:text-base">October 19, 2025<br />6:00 PM</p> {/* Updated date */}
-                        <p className="font-semibold">White Palace</p>
-                        <p className="text-sm">194 Hoàng Văn Thụ, Phường 9, Phú Nhuận, TP. Hồ Chí Minh</p>
-                        <a href="https://maps.app.goo.gl/L3SNTu5D35Rs38ts5" target="_blank" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">View Map</a>
-                    </div>
-                </div>
-            </section>
-        );
-
-        const GallerySection = () => {
-            const photos = [
-                { src: './images/1.JPG' },
-                { src: './images/2.JPG' },
-                { src: './images/3.JPG' },
-                { src: './images/4.JPG' },
-                { src: './images/5.JPG' },
-                { src: './images/6.JPG' }
-            ];
-            return (
-                <section id="gallery" className="py-16 px-4 md:py-24 md:px-8 bg-secondary text-center">
-                    <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Our Moments</h2>
-                    <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
-                    <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 mt-12">
-                        {photos.map((photo, index) => (
-                            <div key={index} data-aos="fade-up" data-aos-delay={(index % 3) * 100}>
-                                <img src={photo.src} className="photo-gallery-img rounded-lg w-full h-full object-cover" alt={`Gallery photo ${index + 1}`} />
-                            </div>
-                        ))}
-                    </div>
-                </section>
-            );
-        };
-
-        const GuestbookSection = () => {
-            const [name, setName] = useState('');
-            const [message, setMessage] = useState('');
-            const [wishes, setWishes] = useState([
-                { id: 1, name: 'Sample Guest', message: "This is a sample message. Can't wait for the big day!" }
-            ]);
-
-            const handleSubmit = (e) => {
-                e.preventDefault();
-                if (!name || !message) return;
-                const newWish = { id: Date.now(), name, message };
-                console.log("Submitting to Firebase (simulation):", newWish);
-                // Replaced alert with a console log for demonstration purposes
-                console.log(`Thank you, ${name}! Your message has been received (simulation).`);
-                setWishes([newWish, ...wishes]);
-                setName('');
-                setMessage('');
-            };
-
-            return (
-                <section id="guestbook" className="py-16 px-4 md:py-24 md:px-8 text-center">
-                    <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Guest Book</h2>
-                    <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
-                    <p className="max-w-2xl mx-auto mb-12 text-sm md:text-base" data-aos="fade-up" data-aos-delay="200">
-                        Leave us a message! We'd love to hear your wishes for our new journey together.
-                    </p>
-                    <div className="max-w-2xl mx-auto bg-white p-4 md:p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                        <form onSubmit={handleSubmit}>
-                            <div className="mb-4">
-                                <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your Name" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-accent text-sm md:text-base" required />
-                            </div>
-                            <div className="mb-4">
-                                <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Your Message" rows="4" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-accent text-sm md:text-base" required></textarea>
-                            </div>
-                            <button type="submit" className="btn-primary font-display text-lg px-8 py-3 rounded-full w-full">Send Wish</button>
-                        </form>
-                    </div>
-
-                    <div className="max-w-2xl mx-auto mt-12 space-y-4">
-                        {wishes.map(wish => (
-                            <div key={wish.id} className="bg-white p-4 rounded-lg shadow-sm text-left animate-fade-in">
-                                <p className="font-semibold text-accent">{wish.name}</p>
-                                <p className="text-sm">{wish.message}</p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-            );
-        };
-
-        const Footer = () => (
-            <footer className="text-center py-8 bg-secondary">
-                <h3 className="text-3xl md:text-4xl font-display text-accent">Thank you for being part of our special day!</h3>
-                <p className="mt-2">-- Anh Minh ♥ Thanh Trinh --</p>
-            </footer>
-        );
-
-
-        // --- Main App Component ---
-        function App() {
-            const [isInvitationOpen, setIsInvitationOpen] = useState(false);
-            const [isPlaying, setIsPlaying] = useState(false);
-            const audioRef = useRef(null);
-            const [showFloating, setShowFloating] = useState(false);
-
-            useEffect(() => {
-                AOS.init({
-                    duration: 800,
-                    once: true,
-                    disable: 'mobile' // Optionally disable animations on mobile for performance
-                });
-            }, []);
-
-            // Show FAB and MusicPlayer only after scrolling past Header
-            useEffect(() => {
-                const handleScroll = () => {
-                    const header = document.querySelector('header');
-                    if (!header) return;
-                    const headerHeight = header.offsetHeight;
-                    // Show floating buttons if scrolled past 50% of header height
-                    setShowFloating(window.scrollY >= headerHeight / 4);
-                };
-                window.addEventListener('scroll', handleScroll);
-                // Initial check
-                handleScroll();
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
-
-            // Effect to control body scrolling
-            useEffect(() => {
-                if (!isInvitationOpen) {
-                    // If invitation is not open, block scrolling
-                    document.body.classList.add('no-scroll');
-                } else {
-                    // If invitation is open, allow scrolling
-                    document.body.classList.remove('no-scroll');
-                }
-                // Cleanup function to ensure scrolling is re-enabled if component unmounts
-                return () => {
-                    document.body.classList.remove('no-scroll');
-                };
-            }, [isInvitationOpen]); // Re-run effect when isInvitationOpen changes
-
-
-            const handleOpenInvitation = () => {
-                setIsInvitationOpen(true);
-                // audioRef.current.play().catch(e => console.error("Autoplay failed", e));
-                setIsPlaying(false);
-            };
-
-            const handlePlayPause = () => {
-                if (isPlaying) {
-                    audioRef.current.pause();
-                } else {
-                    audioRef.current.play();
-                }
-                setIsPlaying(!isPlaying);
-            };
-
-            return (
-                <React.Fragment>
-                    {!isInvitationOpen && <InvitationOverlay onOpen={handleOpenInvitation} />}
-
-                    <div id="main-content" className={isInvitationOpen ? 'opacity-100' : 'opacity-0'}>
-                        {/* Show floating buttons only after scrolling past Header */}
-                        <div className={`transition-opacity duration-500 ${showFloating ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-                            <MusicPlayer audioRef={audioRef} isPlaying={isPlaying} onPlayPause={handlePlayPause} />
-                            <FloatingActionButton />
-                        </div>
-                        <Header />
-                        <main>
-                            <CoupleSection />
-                            <Countdown />
-                            <EventsSection />
-                            <GallerySection />
-                            <GuestbookSection />
-                        </main>
-                        <Footer />
-                    </div>
-                </React.Fragment>
-            );
+      const scrollToSection = (id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setOpen(false);
         }
+      };
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+      return (
+        <nav id="fab-root" aria-label="Page shortcuts" className="fixed bottom-4 right-4 z-40 flex flex-col items-end">
+          <div className={`flex flex-col items-end space-y-3 mb-2 transition-all duration-300 ${open ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+            <button onClick={() => scrollToSection('countdown')} className="flex items-center px-4 py-2 rounded-full shadow-lg bg-white text-accent font-semibold hover:bg-accent hover:text-white transition-colors text-sm md:text-base">
+              <span className="mr-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
+              </span>
+              Calendar
+            </button>
+            <button onClick={() => scrollToSection('events')} className="flex items-center px-4 py-2 rounded-full shadow-lg bg-white text-accent font-semibold hover:bg-accent hover:text-white transition-colors text-sm md:text-base">
+              <span className="mr-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+              </span>
+              Events
+            </button>
+            <button onClick={() => scrollToSection('gallery')} className="flex items-center px-4 py-2 rounded-full shadow-lg bg-white text-accent font-semibold hover:bg-accent hover:text-white transition-colors text-sm md:text-base">
+              <span className="mr-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" /></svg>
+              </span>
+              Gallery
+            </button>
+            <button onClick={() => scrollToSection('wedding-gift')} className="flex items-center px-4 py-2 rounded-full shadow-lg bg-white text-accent font-semibold hover:bg-accent hover:text-white transition-colors text-sm md:text-base">
+              <span className="mr-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A4.875 4.875 0 0 1 16.875 9.75H16.875A4.875 4.875 0 0 1 12 14.625A4.875 4.875 0 0 1 7.125 9.75H7.125A4.875 4.875 0 0 1 12 4.875Z" /></svg>
+              </span>
+              Gift
+            </button>
+          </div>
+          <button onClick={() => setOpen(o => !o)} className="w-12 h-12 bg-[#A8876E] text-white rounded-full flex items-center justify-center shadow-lg ring-2 ring-accent pulse-glow backdrop-blur-sm" style={{ transition: 'box-shadow 0.3s' }} aria-label="Open actions">
+            {open ? <MenuCloseIcon /> : <MenuOpenIcon />}
+          </button>
+        </nav>
+      );
+    };
 
-    </script>
+    // --- Header ---
+    const Header = () => (
+      <header className="h-screen min-h-[568px] bg-cover bg-center bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('./images/header.JPG')" }}>
+        <div className="bg-black/40 inset-0 absolute"></div>
+        <div className="relative text-center p-4" data-aos="fade-in" data-aos-delay="500">
+          <p className="text-lg md:text-2xl font-light">WE'RE GETTING MARRIED</p>
+          <h1 className="text-6xl sm:text-7xl md:text-9xl font-display my-2">Minh &#128150; Trinh</h1>
+          <p className="text-lg md:text-2xl font-light">October 19, 2025</p>
+        </div>
+      </header>
+    );
+
+    // --- Couple ---
+    const CoupleSection = () => (
+      <section id="couple" className="py-16 px-4 md:py-24 md:px-8 text-center">
+        <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">The Happy Couple</h2>
+        <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-center mt-12">
+          <div className="text-center" data-aos="fade-right" data-aos-delay="200">
+            <img src="./images/groom.JPG" alt="The Groom" className="w-40 h-40 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-xl" width="256" height="256" />
+            <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">Nguyen Pham Anh Minh</h3>
+            <p className="mt-2 text-xs md:text-base">Son of</p>
+            <p className="mt-2 text-sm md:text-base font-semibold">Mr. Nguyen Quoc Truong</p>
+            <p className="mt-2 text-sm md:text-base font-semibold">Mrs. Pham Le Thuy Hoai Chau</p>
+          </div>
+          <div className="text-center mt-8 md:mt-0" data-aos="fade-left" data-aos-delay="200">
+            <img src="./images/bride.JPG" alt="The Bride" className="w-40 h-40 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-xl" width="256" height="256" />
+            <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">Le Thi Thanh Trinh</h3>
+            <p className="mt-2 text-xs md:text-base">Daughter of</p>
+            <p className="mt-2 text-sm md:text-base font-semibold">Mr. Le Van Le</p>
+            <p className="mt-2 text-sm md:text-base font-semibold">Mrs. Nguyen Thi Kim Anh</p>
+          </div>
+        </div>
+      </section>
+    );
+
+    // --- Countdown ---
+    const Countdown = () => {
+      const calculateTimeLeft = () => {
+        const difference = +new Date("2025-10-19T14:00:00") - +new Date();
+        let timeLeft = {};
+        if (difference > 0) {
+          timeLeft = {
+            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+            minutes: Math.floor((difference / 1000 / 60) % 60),
+            seconds: Math.floor((difference / 1000) % 60)
+          };
+        }
+        return timeLeft;
+      };
+
+      const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+      useEffect(() => {
+        const timer = setTimeout(() => setTimeLeft(calculateTimeLeft()), 1000);
+        return () => clearTimeout(timer);
+      });
+
+      const timerComponents = Object.keys(timeLeft).map(interval => (
+        <div key={interval}>
+          <p className="text-4xl sm:text-5xl md:text-7xl font-display">{String(timeLeft[interval]).padStart(2, '0')}</p>
+          <p className="text-xs sm:text-sm md:text-lg capitalize">{interval}</p>
+        </div>
+      ));
+
+      return (
+        <section id="countdown" className="bg-secondary text-center">
+          <div className="bg-cover bg-center py-16 md:py-20 text-white relative" style={{ backgroundImage: "url('./images/countdown_bg.JPG')", backgroundAttachment: 'fixed' }}>
+            <div className="bg-black/50 inset-0 absolute"></div>
+            <div className="relative">
+              <h2 className="text-3xl md:text-5xl font-display mb-8 px-2" data-aos="fade-up">Until We Say 'I Do'</h2>
+              <div className="flex justify-center space-x-3 sm:space-x-6 md:space-x-12 text-center" data-aos="fade-up" data-aos-delay="200">
+                {timerComponents.length ? timerComponents : <p className="text-3xl md:text-4xl font-display">We tied the knot!</p>}
+              </div>
+              {/* Mini Calendar */}
+              <div className="flex justify-center my-8">
+                <div className="mini-calendar bg-white rounded-xl shadow-lg m-4 p-4">
+                  <div className="calendar-header text-center pb-4">
+                    <span className="text-accent">October 2025</span>
+                  </div>
+                  <table className="calendar-table w-full text-center">
+                    <thead>
+                      <tr className="text-accent">
+                        <th className="font-normal">Mo</th>
+                        <th className="font-normal">Tu</th>
+                        <th className="font-normal">We</th>
+                        <th className="font-normal">Th</th>
+                        <th className="font-normal">Fr</th>
+                        <th className="font-normal">Sa</th>
+                        <th className="font-black">Su</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>·</td><td>·</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                      </tr>
+                      <tr>
+                        <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+                      </tr>
+                      <tr>
+                        <td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td className="selected-day">19</td>
+                      </tr>
+                      <tr>
+                        <td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+                      </tr>
+                      <tr>
+                        <td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>·</td><td>·</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {/* --- Mini Calendar End --- */}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // --- Events ---
+    const EventsSection = () => (
+      <section id="events" className="py-16 px-4 md:py-24 md:px-8 text-center">
+        <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Wedding Events</h2>
+        <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
+        <p className="max-w-2xl mx-auto mb-12 text-sm md:text-base" data-aos="fade-up" data-aos-delay="200">
+          Your presence at our wedding is the greatest gift of all. However, should you wish to honour us with a gift, a wishing well will be available at the reception for your contribution and best wishes.
+        </p>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+          <div className="bg-white p-4 md:p-8 rounded-lg shadow-lg mt-8 md:mt-0" data-aos="fade-up-left">
+            <h3 className="text-2xl md:text-3xl font-display text-accent">Reception Party</h3>
+            <p className="my-4 text-sm md:text-base">October 19, 2025<br />6:00 PM</p>
+            <p className="font-semibold">WHITE PALACE</p>
+            <p className="text-sm">194 Hoang Van Thu, Ward 9, Phu Nhuan, HCMC</p>
+            <a href="https://maps.app.goo.gl/L3SNTu5D35Rs38ts5" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">View Map</a>
+          </div>
+        </div>
+      </section>
+    );
+
+    // --- Gallery ---
+    const GallerySection = () => {
+      const allPhotos = [
+        { src: './images/g-1.JPG', alt: 'M+T 1' },
+        { src: './images/g-2.JPG', alt: 'M+T 2' },
+        { src: './images/g-3.JPG', alt: 'M+T 3' },
+        { src: './images/g-4.JPG', alt: 'M+T 4' },
+        { src: './images/g-5.JPG', alt: 'M+T 5' },
+        { src: './images/g-6.JPG', alt: 'M+T 6' },
+        { src: './images/g-7.JPG', alt: 'M+T 7' },
+        { src: './images/g-8.JPG', alt: 'M+T 8' },
+        { src: './images/g-9.JPG', alt: 'M+T 9' },
+        { src: './images/g-10.JPG', alt: 'M+T 10' },
+        { src: './images/g-11.JPG', alt: 'M+T 11' },
+        { src: './images/g-12.JPG', alt: 'M+T 12' },
+        { src: './images/g-13.JPG', alt: 'M+T 13' },
+        { src: './images/g-14.JPG', alt: 'M+T 14' },
+        { src: './images/g-15.JPG', alt: 'M+T 15' },
+      ];
+
+      // Get 6 random images for preview
+      const getRandomIndices = () => {
+        const indices = [...Array(allPhotos.length).keys()];
+        indices.sort(() => 0.5 - Math.random());
+        return indices.slice(0, 6);
+      };
+
+      const [previewIdx] = React.useState(getRandomIndices());
+
+      const dynamicEl = useMemo(() => allPhotos.map(p => ({ src: p.src, thumb: p.src })), []);
+      const lgRef = useRef(null);
+
+      function openGallery(startIndex = 0) {
+        // Load only when the library is present (scripts are deferred)
+        if (typeof window.lightGallery !== 'function') return;
+
+        const container = document.createElement('div');
+        container.className = 'lg-root';
+        document.body.appendChild(container);
+        // const container = document.getElementById('lg-dynamic-root') || document.body;
+
+        if (!lgRef.current) {
+          lgRef.current = window.lightGallery(container, {
+            dynamic: true,
+            dynamicEl,
+            plugins: [
+              window.lgZoom,
+              window.lgThumbnail,
+              window.lgAutoplay,
+            ],
+            index: 0,
+            download: false,
+            slideShowAutoplay: true,
+            slideShowInterval: 4000,
+            preload: 2,
+            hideBarsDelay: 3000,
+            speed: 400,
+            alt: false,
+            mobileSettings: {
+              controls: true,
+              showCloseIcon: true,
+              download: false,
+              slideShowAutoplay: true
+            },
+          });
+        }
+        // Update starting index and open
+        lgRef.current.settings.index = Math.max(0, Math.min(startIndex, dynamicEl.length - 1));
+        lgRef.current.openGallery();
+
+        const onAfterClose = () => {
+          try {
+            lgRef.current?.destroy(true); // removes LG DOM & listeners
+          } finally {
+            lgRef.current = null;
+            container.remove(); // remove the one-off container
+          }
+        };
+
+        container.addEventListener('lgAfterClose', onAfterClose, { once: true });
+      };
+
+      return (
+        <section id="gallery" className="py-16 px-4 md:py-24 md:px-8 bg-secondary text-center" aria-label="Photo gallery">
+          <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Our Moments</h2>
+          <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
+
+          {/* Preview Grid - 6 random images */}
+          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 mt-12">
+            {previewIdx.map((photoIdx, i) => {
+              const photo = allPhotos[photoIdx];
+              return (
+                <figure
+                  key={photoIdx}
+                  data-aos="fade-up"
+                  data-aos-delay={(i % 3) * 100}
+                  className="relative cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A8876E] rounded-lg"
+                  onClick={() => openGallery(photoIdx)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      openGallery(photoIdx);
+                    }
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`Open photo ${i + 1} in lightbox`}
+                  title="Open in lightbox"
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="photo-gallery-img rounded-lg w-full h-full object-cover"
+                    style={{ aspectRatio: '3/ 4', objectFit: 'cover' }}
+                    loading="lazy" decoding="async"
+                  />
+                </figure>
+              );
+            })}
+          </div>
+
+          <div className="mt-10">
+            <button onClick={() => openGallery(0)} className="btn-primary text-base md:text-lg px-8 py-3 rounded-full">Open Full Gallery</button>
+          </div>
+        </section>
+      );
+    };
+
+    // --- Footer ---
+    const Footer = () => (
+      <footer className="text-center py-8 bg-secondary">
+        <h3 className="text-3xl md:text-4xl font-display text-accent">Thank you for being part of our special day!</h3>
+        <p className="mt-2">-- Anh Minh ♥ Thanh Trinh --</p>
+      </footer>
+    );
+
+    function App() {
+      // NOTE: Start with overlay visible (true = show overlay)
+      const [isInvitationOpen, setIsInvitationOpen] = useState(true); // TODO: set to false
+      const [isPlaying, setIsPlaying] = useState(false);
+      const audioRef = useRef(null);
+      const [showFloating, setShowFloating] = useState(false);
+
+      useEffect(() => {
+        if (window.AOS) {
+          window.AOS.init({ duration: 800, once: true });
+        }
+      }, []);
+
+      useEffect(() => {
+        const handleScroll = () => {
+          const header = document.querySelector('header');
+          if (!header) return;
+          const headerHeight = header.offsetHeight;
+          // Show floating buttons if scrolled past 50% of header height
+          setShowFloating(window.scrollY >= headerHeight / 4);
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      // Effect to control body scrolling
+      useEffect(() => {
+        if (!isInvitationOpen) {
+          // If invitation is not open, block scrolling
+          document.body.classList.add('no-scroll');
+        } else {
+          // If invitation is open, allow scrolling
+          document.body.classList.remove('no-scroll');
+        }
+        // Cleanup function to ensure scrolling is re-enabled if component unmounts
+        return () => document.body.classList.remove('no-scroll');
+      }, [isInvitationOpen]); // Re-run effect when isInvitationOpen changes
+
+
+      const handleOpenInvitation = () => {
+        setIsInvitationOpen(true);
+        // TODO: audioRef.current.play().catch(e => console.error("Autoplay failed", e));
+        setIsPlaying(false);
+      };
+
+      const handlePlayPause = () => {
+        if (isPlaying) {
+          audioRef.current.pause();
+        } else {
+          audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+      };
+
+      return (
+        <React.Fragment>
+          {!isInvitationOpen && <InvitationOverlay onOpen={handleOpenInvitation} />}
+
+          <div id="main-content" className={isInvitationOpen ? 'opacity-100' : 'opacity-0'}>
+            {/* Show floating buttons only after scrolling past Header */}
+            <div className={`transition-opacity duration-500 ${showFloating ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+              <MusicPlayer audioRef={audioRef} isPlaying={isPlaying} onPlayPause={handlePlayPause} />
+              <FloatingActionButton />
+            </div>
+            <Header />
+            <main>
+              <CoupleSection />
+              <Countdown />
+              <EventsSection />
+              <GallerySection />
+              {/* Wedding Gift */}
+              <section id="wedding-gift" className="py-16 px-4 md:py-24 md:px-8 text-center bg-white">
+                <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Wedding Gift</h2>
+                <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
+                <p className="max-w-2xl mx-auto mb-8 text-sm md:text-base" data-aos="fade-up" data-aos-delay="200">
+                  Your presence at our wedding is the greatest gift. If you wish to send us a blessing, you can use the QR code below. Thank you for your love and support!
+                </p>
+                <div className="flex flex-col items-center justify-center" data-aos="zoom-in" data-aos-delay="300">
+                  <img src="./images/bank_qr.png" alt="Bank QR Code" className="w-72 max-w-full rounded-xl shadow-lg border border-accent mb-4" style={{ background: '#fff' }} width="288" height="288" />
+                  <div className="mt-2 text-accent font-semibold">Scan to send your wedding gift</div>
+                </div>
+              </section>
+            </main>
+            <Footer />
+          </div>
+        </React.Fragment>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 
 </html>
