@@ -11,6 +11,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -205,6 +206,33 @@
         <path d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
       </svg>
     );
+    const MenuOpenIcon = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+        <path fillRule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+      </svg>
+    );
+    const MenuCloseIcon = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+        <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+      </svg>
+    );
+    const CalendarIcon = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date text-accent mr-2" viewBox="0 0 16 16">
+        <path d="M6.445 11.688V6.354h-.633A13 13 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23" />
+        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+      </svg>
+    );
+    const ClockIcon = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill text-accent mr-2" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+      </svg>
+    );
+    const LocationIcon = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pin-map-fill text-accent mr-2" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z" />
+        <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z" />
+      </svg>
+    );
 
     // --- Overlay ---
     const InvitationOverlay = ({ onOpen }) => (
@@ -237,17 +265,6 @@
     );
 
     // --- FAB ---
-    const MenuOpenIcon = () => (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
-        <path fillRule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
-      </svg>
-    );
-    const MenuCloseIcon = () => (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
-        <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
-      </svg>
-    );
-
     const FloatingActionButton = () => {
       const [open, setOpen] = useState(false);
       useEffect(() => {
@@ -305,10 +322,10 @@
     // --- Header ---
     const Header = () => (
       <header className="h-screen min-h-[568px] bg-cover bg-center bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('./images/header.JPG')" }}>
-        <div className="bg-black/40 inset-0 absolute"></div>
+        <div className="bg-black/40 inset-0 absolute min-h-[568px]"></div>
         <div className="relative text-center p-4" data-aos="fade-in" data-aos-delay="500">
           <p className="text-lg md:text-2xl font-light">WE'RE GETTING MARRIED</p>
-          <h1 className="text-6xl sm:text-7xl md:text-9xl font-display my-2">Minh &#128150; Trinh</h1>
+          <h1 className="text-6xl sm:text-7xl md:text-9xl font-display my-2">Minh ♥ Trinh</h1>
           <p className="text-lg md:text-2xl font-light">October 19, 2025</p>
         </div>
       </header>
@@ -433,20 +450,48 @@
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
           <div className="bg-white p-4 md:p-8 rounded-lg shadow-lg" data-aos="fade-up-right">
             <h3 className="text-2xl md:text-3xl font-display text-accent">Wedding Ceremony</h3>
-            <p className="my-4 text-sm md:text-base">October 19, 2025<br />10:00 AM</p>
-            <p className="font-semibold">HOME</p>
-            <p className="text-sm">Go Vap, HCMC</p>
-            <a href="https://maps.app.goo.gl/L3SNTu5D35Rs38ts5" target="_blank" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">View Map</a>
+            <div className="my-4 text-sm md:text-base">
+              <div className="flex items-center justify-center mb-2">
+                <CalendarIcon />
+                <span>October 19, 2025</span>
+              </div>
+              <div className="flex items-center justify-center">
+                <ClockIcon />
+                <span>10:00 AM</span>
+              </div>
+            </div>
+            <p className="font-bold">HOME</p>
+            <div className="text-sm">
+              <div className="flex items-center justify-center">
+                <LocationIcon />
+                <span>Go Vap, HCMC</span>
+              </div>
+            </div>
+            <a href="https://maps.app.goo.gl/Lonv6J3RDdqQ9Y519" target="_blank" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">View Map</a>
           </div>
           <div className="bg-white p-4 md:p-8 rounded-lg shadow-lg mt-8 md:mt-0" data-aos="fade-up-left">
             <h3 className="text-2xl md:text-3xl font-display text-accent">Reception Party</h3>
-            <p className="my-4 text-sm md:text-base">October 19, 2025<br />6:00 PM</p>
-            <p className="font-semibold">WHITE PALACE</p>
-            <p className="text-sm">194 Hoang Van Thu, Ward 9, Phu Nhuan, HCMC</p>
+            <div className="my-4 text-sm md:text-base">
+              <div className="flex items-center justify-center mb-2">
+                <CalendarIcon />
+                <span>October 19, 2025</span>
+              </div>
+              <div className="flex items-center justify-center">
+                <ClockIcon />
+                <span>6:00 PM</span>
+              </div>
+            </div>
+            <p className="font-bold">WHITE PALACE</p>
+            <div className="text-sm">
+              <div className="flex items-center justify-center">
+                <LocationIcon />
+                <span>194 Hoang Van Thu, Ward 9, Phu Nhuan, HCMC</span>
+              </div>
+            </div>
             <a href="https://maps.app.goo.gl/L3SNTu5D35Rs38ts5" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">View Map</a>
           </div>
         </div>
-      </section>
+      </section >
     );
 
     // --- Gallery ---
@@ -468,15 +513,6 @@
         { src: './images/g-14.JPG', alt: 'M+T 14' },
         { src: './images/g-15.JPG', alt: 'M+T 15' },
       ];
-
-      // Get 6 random images for preview
-      const getRandomIndices = () => {
-        const indices = [...Array(allPhotos.length).keys()];
-        indices.sort(() => 0.5 - Math.random());
-        return indices.slice(0, 6);
-      };
-
-      const [previewIdx] = React.useState(getRandomIndices());
 
       const dynamicEl = useMemo(() => allPhotos.map(p => ({ src: p.src, thumb: p.src })), []);
       const lgRef = useRef(null);
@@ -536,42 +572,123 @@
           <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Our Moments</h2>
           <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
 
-          {/* Preview Grid - 6 random images */}
           <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 mt-12">
-            {previewIdx.map((photoIdx, i) => {
-              const photo = allPhotos[photoIdx];
-              return (
-                <figure
-                  key={photoIdx}
-                  data-aos="fade-up"
-                  data-aos-delay={(i % 3) * 100}
-                  className="relative cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A8876E] rounded-lg"
-                  onClick={() => openGallery(photoIdx)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      openGallery(photoIdx);
-                    }
-                  }}
-                  tabIndex={0}
-                  role="button"
-                  aria-label={`Open photo ${i + 1} in lightbox`}
-                  title="Open in lightbox"
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    className="photo-gallery-img rounded-lg w-full h-full object-cover"
-                    style={{ aspectRatio: '3/ 4', objectFit: 'cover' }}
-                    loading="lazy" decoding="async"
-                  />
-                </figure>
-              );
-            })}
+            {allPhotos.slice(0, 6).map((photo, i) => (
+              <figure
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={(i % 3) * 100}
+                className="relative cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A8876E] rounded-lg"
+                onClick={() => openGallery(i)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openGallery(i);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`Open photo ${i + 1} in lightbox`}
+                title="Open in lightbox"
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="photo-gallery-img rounded-lg w-full h-full object-cover"
+                  style={{ aspectRatio: '3/ 4', objectFit: 'cover' }}
+                  loading="lazy" decoding="async"
+                />
+              </figure>
+            ))}
           </div>
 
-          <div className="mt-10">
+          <div className="mt-8">
             <button onClick={() => openGallery(0)} className="btn-primary text-base md:text-lg px-8 py-3 rounded-full">Open Full Gallery</button>
+          </div>
+        </section>
+      );
+    };
+
+    // --- Wedding Gift ---
+    const WeddingGiftSection = () => {
+      const qrPhoto = { src: './images/bank_qr.png', alt: 'Bank QR Code' };
+
+      const openQrGallery = () => {
+        // Load only when the library is present (scripts are deferred)
+        if (typeof window.lightGallery !== 'function') return;
+
+        const container = document.createElement('div');
+        container.className = 'lg-root';
+        document.body.appendChild(container);
+
+        const lgInstance = window.lightGallery(container, {
+          dynamic: true,
+          dynamicEl: [{ src: qrPhoto.src, thumb: qrPhoto.src }],
+          plugins: [
+            window.lgThumbnail,
+          ],
+          index: 0,
+          download: false,
+          preload: 1,
+          hideBarsDelay: 3000,
+          alt: false,
+          mobileSettings: {
+            controls: true,
+            showCloseIcon: true,
+            download: false,
+          },
+        });
+
+        lgInstance.openGallery();
+
+        const onAfterClose = () => {
+          try {
+            lgInstance?.destroy(true);
+          } finally {
+            container.remove();
+          }
+        };
+
+        container.addEventListener('lgAfterClose', onAfterClose, { once: true });
+      };
+
+      return (
+        <section id="wedding-gift" className="py-16 px-4 md:py-24 md:px-8 text-center bg-white">
+          <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Wishing Well Box</h2>
+          <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
+          <p className="max-w-2xl mx-auto text-sm md:text-base" data-aos="fade-up" data-aos-delay="200">
+            Your presence at our wedding is the greatest gift.
+          </p>
+          <p className="max-w-2xl mx-auto mb-8 text-sm md:text-base" data-aos="fade-up" data-aos-delay="200">
+            Thank you for your love and support!
+          </p>
+          <div className="flex flex-col items-center justify-center" data-aos="zoom-in" data-aos-delay="300">
+            <figure
+              className="relative cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A8876E] rounded-xl"
+              onClick={openQrGallery}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  openQrGallery();
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label="Open QR code in lightbox"
+              title="Click to enlarge QR code"
+            >
+              <img
+                src="./images/bank_qr.png"
+                alt="Bank QR Code"
+                className="w-48 max-w-full rounded-xl shadow-lg border border-accent mb-4 photo-gallery-img"
+                style={{ background: '#fff' }}
+                width="288"
+                height="288"
+              />
+            </figure>
+            <div className="mt-2 text-accent font-medium">TPBank</div>
+            <div className="text-accent font-medium">0786252840</div>
+            <div className="text-accent font-medium">Nguyen Pham Anh Minh</div>
           </div>
         </section>
       );
@@ -594,7 +711,12 @@
 
       useEffect(() => {
         if (window.AOS) {
-          window.AOS.init({ duration: 800, once: true, disable: 'mobile' });
+          window.AOS.init(
+            {
+              duration: 800,
+              once: true,
+              // TODO: disable: 'mobile'
+            });
         }
       }, []);
 
@@ -656,18 +778,7 @@
               <Countdown />
               <EventsSection />
               <GallerySection />
-              {/* Wedding Gift */}
-              <section id="wedding-gift" className="py-16 px-4 md:py-24 md:px-8 text-center bg-white">
-                <h2 className="text-4xl md:text-5xl font-display text-accent" data-aos="fade-up">Wedding Gift</h2>
-                <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
-                <p className="max-w-2xl mx-auto mb-8 text-sm md:text-base" data-aos="fade-up" data-aos-delay="200">
-                  Your presence at our wedding is the greatest gift. If you wish to send us a blessing, you can use the QR code below. Thank you for your love and support!
-                </p>
-                <div className="flex flex-col items-center justify-center" data-aos="zoom-in" data-aos-delay="300">
-                  <img src="./images/bank_qr.png" alt="Bank QR Code" className="w-72 max-w-full rounded-xl shadow-lg border border-accent mb-4" style={{ background: '#fff' }} width="288" height="288" />
-                  <div className="mt-2 text-accent font-semibold">Scan to send your wedding gift</div>
-                </div>
-              </section>
+              <WeddingGiftSection />
             </main>
             <Footer />
           </div>
