@@ -136,7 +136,7 @@
     }
 
     .pulse-glow {
-      animation: pulse-glow 1.6s infinite;
+      animation: pulse-glow 2s infinite;
       will-change: box-shadow;
     }
 
@@ -189,7 +189,6 @@
 
     /* Performance optimizations for mobile */
     @media (max-width: 768px) {
-
       /* Disable fixed background attachments on mobile */
       .bg-fixed {
         background-attachment: scroll !important;
@@ -205,12 +204,6 @@
       img {
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
-      }
-
-      /* Disable pulse animation on mobile */
-      .pulse-glow {
-        animation: none;
-        box-shadow: 0 0 0 2px rgba(168, 135, 110, 0.3);
       }
 
       /* Reduce transition durations on mobile */
@@ -379,7 +372,7 @@
     // --- Header ---
     const Header = () => (
       <header className="h-screen min-h-[568px] bg-cover bg-center bg-fixed md:bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('./images/header.JPG')" }}>
-        <div className="bg-black/40 inset-0 absolute min-h-[568px]"></div>
+        <div className="bg-black/40 inset-0 absolute min-h-[700px]"></div>
         <div className="relative text-center p-4" data-aos="fade-in" data-aos-delay="500">
           <p className="text-lg md:text-2xl font-light">WE'RE GETTING MARRIED</p>
           <h1 className="text-6xl sm:text-7xl md:text-9xl font-display my-2">Minh ♥ Trinh</h1>
@@ -772,7 +765,7 @@
             {
               duration: 800,
               once: true,
-              disable: 'mobile',
+              // disable: 'mobile',
               throttleDelay: 99,
             });
         }
