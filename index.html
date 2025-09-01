@@ -33,7 +33,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <!-- Preload the hero so it paints faster -->
-  <link rel="preload" as="image" href="./images/header.JPG" imagesizes="100vw" />
+  <link rel="preload" as="image" href="./images/header.webp" imagesizes="100vw" />
 
   <style>
     :root {
@@ -365,7 +365,7 @@
 
     // --- Header ---
     const Header = () => (
-      <header className="h-screen min-h-[568px] bg-cover bg-center bg-fixed md:bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('./images/header.JPG')" }}>
+      <header className="h-screen min-h-[568px] bg-cover bg-center bg-fixed md:bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('./images/header.webp')" }}>
         <div className="bg-black/40 inset-0 absolute min-h-[700px]"></div>
         <div className="relative text-center p-4" data-aos="fade-in" data-aos-delay="500">
           <p className="text-lg md:text-2xl font-light">WE'RE GETTING MARRIED</p>
@@ -382,14 +382,14 @@
         <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-center mt-12">
           <div className="text-center" data-aos="fade-right" data-aos-delay="200">
-            <img src="./images/groom.JPG" alt="The Groom" className="w-40 h-40 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="256" height="256" loading="lazy" decoding="async" />
+            <img src="./images/groom.webp" alt="The Groom" className="w-40 h-40 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="256" height="256" loading="lazy" decoding="async" />
             <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">Nguyen Pham Anh Minh</h3>
             <p className="mt-2 text-xs md:text-base">Son of</p>
             <p className="mt-2 text-sm md:text-base font-semibold">Mr. Nguyen Quoc Truong</p>
             <p className="mt-2 text-sm md:text-base font-semibold">Mrs. Pham Le Thuy Hoai Chau</p>
           </div>
           <div className="text-center mt-8 md:mt-0" data-aos="fade-left" data-aos-delay="200">
-            <img src="./images/bride.JPG" alt="The Bride" className="w-40 h-40 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="256" height="256" loading="lazy" decoding="async" />
+            <img src="./images/bride.webp" alt="The Bride" className="w-40 h-40 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="256" height="256" loading="lazy" decoding="async" />
             <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">Le Thi Thanh Trinh</h3>
             <p className="mt-2 text-xs md:text-base">Daughter of</p>
             <p className="mt-2 text-sm md:text-base font-semibold">Mr. Le Van Le</p>
@@ -431,7 +431,7 @@
 
       return (
         <section id="countdown" className="bg-secondary text-center">
-          <div className="bg-cover bg-center py-16 md:py-20 text-white relative" style={{ backgroundImage: "url('./images/countdown_bg.JPG')", backgroundAttachment: 'scroll' }}>
+          <div className="bg-cover bg-center py-16 md:py-20 text-white relative" style={{ backgroundImage: "url('./images/countdown_bg.webp')", backgroundAttachment: 'scroll' }}>
             <div className="bg-black/50 inset-0 absolute"></div>
             <div className="relative">
               <h2 className="text-3xl md:text-5xl font-display mb-8 px-2" data-aos="fade-up">Until We Say 'I Do'</h2>
@@ -541,21 +541,21 @@
     // --- Gallery ---
     const GallerySection = () => {
       const allPhotos = [
-        { src: './images/g-1.JPG', alt: 'M+T 1' },
-        { src: './images/g-2.JPG', alt: 'M+T 2' },
-        { src: './images/g-3.JPG', alt: 'M+T 3' },
-        { src: './images/g-4.JPG', alt: 'M+T 4' },
-        { src: './images/g-5.JPG', alt: 'M+T 5' },
-        { src: './images/g-6.JPG', alt: 'M+T 6' },
-        { src: './images/g-7.JPG', alt: 'M+T 7' },
-        { src: './images/g-8.JPG', alt: 'M+T 8' },
-        { src: './images/g-9.JPG', alt: 'M+T 9' },
-        { src: './images/g-10.JPG', alt: 'M+T 10' },
-        { src: './images/g-11.JPG', alt: 'M+T 11' },
-        { src: './images/g-12.JPG', alt: 'M+T 12' },
-        { src: './images/g-13.JPG', alt: 'M+T 13' },
-        { src: './images/g-14.JPG', alt: 'M+T 14' },
-        { src: './images/g-15.JPG', alt: 'M+T 15' },
+        { src: './images/g-1.webp', alt: 'M+T 1' },
+        { src: './images/g-2.webp', alt: 'M+T 2' },
+        { src: './images/g-3.webp', alt: 'M+T 3' },
+        { src: './images/g-4.webp', alt: 'M+T 4' },
+        { src: './images/g-5.webp', alt: 'M+T 5' },
+        { src: './images/g-6.webp', alt: 'M+T 6' },
+        { src: './images/g-7.webp', alt: 'M+T 7' },
+        { src: './images/g-8.webp', alt: 'M+T 8' },
+        { src: './images/g-9.webp', alt: 'M+T 9' },
+        { src: './images/g-10.webp', alt: 'M+T 10' },
+        { src: './images/g-11.webp', alt: 'M+T 11' },
+        { src: './images/g-12.webp', alt: 'M+T 12' },
+        { src: './images/g-13.webp', alt: 'M+T 13' },
+        { src: './images/g-14.webp', alt: 'M+T 14' },
+        { src: './images/g-15.webp', alt: 'M+T 15' },
       ];
 
       const dynamicEl = useMemo(() => allPhotos.map(p => ({ src: p.src, thumb: p.src })), []);
@@ -655,7 +655,7 @@
 
     // --- Wedding Gift ---
     const WeddingGiftSection = () => {
-      const qrPhoto = { src: './images/bank_qr.png', alt: 'Bank QR Code' };
+      const qrPhoto = { src: './images/bank_qr.webp', alt: 'Bank QR Code' };
 
       const openQrGallery = () => {
         // Load only when the library is present (scripts are deferred)
@@ -722,7 +722,7 @@
               title="Click to enlarge QR code"
             >
               <img
-                src="./images/bank_qr.png"
+                src="./images/bank_qr.webp"
                 alt="Bank QR Code"
                 className="w-48 max-w-full rounded-xl shadow-lg border border-accent mb-4 photo-gallery-img"
                 style={{ background: '#fff' }}
