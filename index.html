@@ -329,7 +329,7 @@
       };
 
       return (
-        <nav id="fab-root" aria-label="Page shortcuts" className="fixed bottom-4 right-4 z-40 flex flex-col items-end">
+        <nav id="fab-root" aria-label="Page shortcuts" className="fixed bottom-8 right-4 z-40 flex flex-col items-end">
           <div className={`flex flex-col items-end space-y-3 mb-2 transition-all duration-300 ${open ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
             <button onClick={() => scrollToSection('countdown')} className="flex items-center px-4 py-2 rounded-full shadow-lg bg-white text-accent font-semibold hover:bg-accent hover:text-white transition-colors text-sm md:text-base">
               <span className="mr-2">
@@ -365,7 +365,7 @@
 
     // --- Header ---
     const Header = () => (
-      <header className="h-screen min-h-[712px] bg-cover bg-center bg-fixed md:bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('./images/header.webp')" }}>
+      <header className="min-h-[712px] bg-cover bg-center bg-fixed md:bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('./images/header.webp')" }}>
         <div className="bg-black/40 inset-0 absolute min-h-[712px]"></div>
         <div className="relative text-center p-4" data-aos="fade-in" data-aos-delay="500">
           <p className="text-lg md:text-2xl font-light">WE'RE GETTING MARRIED</p>
