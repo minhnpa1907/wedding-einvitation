@@ -751,7 +751,7 @@
             const [isPlaying, setIsPlaying] = React.useState(false);
             const audioRef = React.useRef(null);
             const [showFloating, setShowFloating] = React.useState(false);
-            const [lang, setLang] = React.useState('en');
+            const [lang, setLang] = React.useState('vi');
             const t = translationsData[lang];
 
             React.useEffect(() => {
@@ -806,8 +806,7 @@
             };
             const LangSwitcher = () => (
               <div style={{ position: 'fixed', top: 16, right: 16, zIndex: 100 }}>
-                <button onClick={() => setLang('en')} disabled={lang === 'en'} style={{ marginRight: 8, opacity: lang === 'en' ? 0.6 : 1 }}>EN</button>
-                <button onClick={() => setLang('vi')} disabled={lang === 'vi'} style={{ opacity: lang === 'vi' ? 0.6 : 1 }}>VI</button>
+                {<button onClick={() => setLang(lang === 'en' ? 'vi' : 'en')} style={{ fontSize: 24, background: 'none', border: 'none', cursor: 'pointer' }}>{lang === 'en' ? '\uD83C\uDDFB\uD83C\uDDF3' : '\uD83C\uDDFA\uD83C\uDDF8'}</button>}
               </div>
             );
 
