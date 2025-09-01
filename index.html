@@ -91,7 +91,6 @@
       color: #FFFFFF;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px -5px rgba(168, 135, 110, 0.5);
-      will-change: transform, box-shadow;
     }
 
     .btn-primary:hover {
@@ -102,7 +101,6 @@
 
     .photo-gallery-img {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      will-change: transform;
     }
 
     .photo-gallery-img:hover {
@@ -112,12 +110,10 @@
 
     #invitation-overlay {
       transition: opacity 1s ease;
-      will-change: opacity;
     }
 
     #main-content {
       transition: opacity 1s ease;
-      will-change: opacity;
     }
 
     @keyframes pulse-glow {
@@ -136,7 +132,6 @@
 
     .pulse-glow {
       animation: pulse-glow 2s infinite;
-      will-change: box-shadow;
     }
 
     /* Mini calendar */
@@ -191,7 +186,7 @@
 
       /* Disable fixed background attachments on mobile */
       .bg-fixed {
-        background-attachment: scroll !important;
+        background-attachment: fixed !important;
       }
 
       /* Optimize image rendering */
@@ -286,7 +281,6 @@
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">Anh Minh</h1>
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">♥</h1>
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">Thanh Trinh</h1>
-          <p className="mb-8 text-base md:text-lg">We are getting married!</p>
           <button onClick={onOpen} className="btn-primary font-display text-lg md:text-xl px-8 py-3 rounded-full">Open Invitation</button>
         </div>
       </div>
@@ -294,7 +288,7 @@
 
     // --- Music ---
     const MusicPlayer = ({ audioRef, isPlaying, onPlayPause }) => (
-      <div id="music-player" className="fixed bottom-4 left-4 z-40">
+      <div id="music-player" className="fixed bottom-8 left-4 z-40">
         <audio ref={audioRef} src="https://cdn.pixabay.com/download/audio/2025/06/09/audio_ffe6e5f7d0.mp3?filename=romantic-wedding-background-music-357203.mp3" loop></audio>
         <button
           onClick={onPlayPause}
@@ -431,7 +425,7 @@
 
       return (
         <section id="countdown" className="bg-secondary text-center">
-          <div className="bg-cover bg-center py-16 md:py-20 text-white relative" style={{ backgroundImage: "url('./images/countdown_bg.webp')", backgroundAttachment: 'scroll' }}>
+          <div className="bg-cover bg-center bg-fixed md:bg-fixed py-16 md:py-20 text-white relative" style={{ backgroundImage: "url('./images/countdown_bg.webp')" }}>
             <div className="bg-black/50 inset-0 absolute"></div>
             <div className="relative">
               <h2 className="text-3xl md:text-5xl font-display mb-8 px-2" data-aos="fade-up">Until We Say 'I Do'</h2>
