@@ -104,7 +104,7 @@
 
     // --- Music ---
     const MusicPlayer = ({ audioRef, isPlaying, onPlayPause }) => (
-      <div id="music-player" className="fixed bottom-8 left-4 z-40">
+      <div id="music-player" className="fixed bottom-4 left-4 z-40">
         <audio ref={audioRef} src="https://cdn.pixabay.com/download/audio/2025/06/09/audio_ffe6e5f7d0.mp3?filename=romantic-wedding-background-music-357203.mp3" loop></audio>
         <button
           onClick={onPlayPause}
@@ -139,7 +139,7 @@
       };
 
       return (
-        <nav id="fab-root" aria-label="Page shortcuts" className="fixed bottom-8 right-4 z-40 flex flex-col items-end">
+        <nav id="fab-root" aria-label="Page shortcuts" className="fixed bottom-4 right-4 z-40 flex flex-col items-end">
           <div className={`flex flex-col items-end space-y-3 mb-2 transition-all duration-300 ${open ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
             <button onClick={() => scrollToSection('countdown')} className="flex items-center px-4 py-2 rounded-full shadow-lg bg-white text-accent font-semibold hover:bg-accent hover:text-white transition-colors text-sm md:text-base">
               <span className="mr-2">
@@ -570,7 +570,7 @@
             const [isPlaying, setIsPlaying] = React.useState(false);
             const audioRef = React.useRef(null);
             const [showFloating, setShowFloating] = React.useState(false);
-            const [lang, setLang] = React.useState('vi');
+            const [lang, setLang] = React.useState('en');
             const t = translationsData[lang];
 
             React.useEffect(() => {
@@ -612,8 +612,8 @@
 
             const handleOpenInvitation = () => {
               setIsInvitationOpen(true);
-              // TODO: audioRef.current.play().catch(e => console.error("Autoplay failed", e));
-              setIsPlaying(false);
+              audioRef.current.play().catch(e => console.error("Autoplay failed", e));
+              setIsPlaying(true);
             };
             const handlePlayPause = () => {
               if (isPlaying) {
