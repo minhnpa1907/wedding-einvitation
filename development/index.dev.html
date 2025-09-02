@@ -31,7 +31,188 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <link rel="stylesheet" href="style.min.css">
+  <style>
+    :root {
+      --bg-primary: #FDFBF8;
+      --bg-secondary: #F1EBE5;
+      --accent: #A8876E;
+      --text: #5D5D5D;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .font-display {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .bg-primary {
+      background-color: var(--bg-primary);
+    }
+
+    .bg-secondary {
+      background-color: var(--bg-secondary);
+    }
+
+    .text-accent {
+      color: var(--accent);
+    }
+
+    .border-accent {
+      border-color: var(--accent);
+    }
+
+    .ring-accent {
+      ring-color: var(--accent);
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px -5px rgba(168, 135, 110, 0.5);
+    }
+
+    .btn-primary:hover {
+      background-color: #8E6F58;
+      box-shadow: 0 6px 20px -5px rgba(168, 135, 110, 0.7);
+      transform: translateY(-2px);
+    }
+
+    .photo-gallery-img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-gallery-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    }
+
+    #invitation-overlay {
+      transition: opacity 1s ease;
+    }
+
+    #main-content {
+      transition: opacity 1s ease;
+    }
+
+    @keyframes pulse-glow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(168, 135, 110, 0.7), 0 0 16px 4px #fff3;
+      }
+
+      70% {
+        box-shadow: 0 0 0 12px rgba(168, 135, 110, 0), 0 0 32px 8px #fff6;
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(168, 135, 110, 0.7), 0 0 16px 4px #fff3;
+      }
+    }
+
+    .pulse-glow {
+      animation: pulse-glow 2s infinite;
+    }
+
+    /* Mini calendar */
+    .mini-calendar {
+      width: 100%;
+      max-width: 420px;
+      font-family: 'Poppins', arial, sans-serif;
+    }
+
+    .mini-calendar .calendar-table td,
+    .mini-calendar .calendar-table th {
+      width: 60px;
+      text-align: center;
+      box-sizing: border-box;
+      vertical-align: middle;
+    }
+
+    .mini-calendar .calendar-table thead th {
+      height: 42px;
+      border-top: 1px solid var(--accent);
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .mini-calendar .calendar-table tbody td {
+      height: 40px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .mini-calendar .calendar-table .selected-day {
+      background: var(--accent);
+      color: var(--bg-primary);
+      font-weight: 900;
+      display: inline-block;
+      width: 40px;
+      line-height: 38px;
+      border-radius: 50%;
+    }
+
+    /* Stronger highlight for the current slide’s thumbnail in lightGallery */
+    .lg-thumb-outer .lg-thumb-item.active {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px rgba(168, 135, 110, .35);
+      filter: none;
+      /* if you use grayscale on thumbs */
+      border-color: var(--accent) !important;
+    }
+
+    /* Performance optimizations for mobile */
+    @media (max-width: 768px) {
+
+      /* Disable fixed background attachments on mobile */
+      .bg-fixed {
+        background-attachment: fixed !important;
+      }
+
+      /* Optimize image rendering */
+      img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+
+      /* Reduce transition durations on mobile */
+      .btn-primary,
+      .photo-gallery-img {
+        transition: all 0.2s ease;
+      }
+
+      /* Disable hover effects on mobile */
+      .btn-primary:hover,
+      .photo-gallery-img:hover {
+        transform: none;
+        box-shadow: 0 4px 15px -5px rgba(168, 135, 110, 0.5);
+      }
+    }
+
+    /* Hardware acceleration for smooth animations */
+    .smooth-animation {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+  </style>
 </head>
 
 <body>
@@ -175,7 +356,7 @@
 
     // --- Header ---
     const Header = ({ t }) => (
-      <header className="h-screen bg-cover bg-center bg-fixed md:bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('./images/header.webp')" }}>
+      <header className="h-screen bg-cover bg-center bg-fixed md:bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('../images/header.webp')" }}>
         <div className="h-screen bg-black/40 inset-0 absolute"></div>
         <div className="relative text-center p-4" data-aos="fade-in" data-aos-delay="500">
           <p className="text-lg md:text-2xl font-light">{t.inform}</p>
@@ -192,14 +373,14 @@
         <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-center mt-12">
           <div className="text-center" data-aos="fade-right" data-aos-delay="200">
-            <img src="./images/groom.webp" alt="The Groom" className="w-80 h-80 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="512" height="512" loading="lazy" decoding="async" />
+            <img src="../images/groom.webp" alt="The Groom" className="w-80 h-80 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="512" height="512" loading="lazy" decoding="async" />
             <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">{t.groom}</h3>
             <p className="mt-2 text-xs md:text-base">{t.sonOf}</p>
             <p className="mt-2 text-sm md:text-base font-semibold">{t.groomFather}</p>
             <p className="mt-2 text-sm md:text-base font-semibold">{t.groomMother}</p>
           </div>
           <div className="text-center mt-8 md:mt-0" data-aos="fade-left" data-aos-delay="200">
-            <img src="./images/bride.webp" alt="The Bride" className="w-80 h-80 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="512" height="512" loading="lazy" decoding="async" />
+            <img src="../images/bride.webp" alt="The Bride" className="w-80 h-80 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="512" height="512" loading="lazy" decoding="async" />
             <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">{t.bride}</h3>
             <p className="mt-2 text-xs md:text-base">{t.daughterOf}</p>
             <p className="mt-2 text-sm md:text-base font-semibold">{t.brideFather}</p>
@@ -243,7 +424,7 @@
 
       return (
         <section id="countdown" className="bg-secondary text-center">
-          <div className="bg-cover bg-center bg-fixed md:bg-fixed py-16 md:py-20 text-white relative" style={{ backgroundImage: "url('./images/countdown_bg.webp')" }}>
+          <div className="bg-cover bg-center bg-fixed md:bg-fixed py-16 md:py-20 text-white relative" style={{ backgroundImage: "url('../images/countdown_bg.webp')" }}>
             <div className="bg-black/50 inset-0 absolute"></div>
             <div className="relative">
               <h2 className="text-3xl md:text-5xl font-display mb-8 px-2" data-aos="fade-up">{t.untilSayIDo}</h2>
@@ -353,21 +534,21 @@
     // --- Gallery ---
     const GallerySection = ({ t }) => {
       const allPhotos = [
-        { src: './images/g-1.webp', alt: 'M+T 1' },
-        { src: './images/g-2.webp', alt: 'M+T 2' },
-        { src: './images/g-3.webp', alt: 'M+T 3' },
-        { src: './images/g-4.webp', alt: 'M+T 4' },
-        { src: './images/g-5.webp', alt: 'M+T 5' },
-        { src: './images/g-6.webp', alt: 'M+T 6' },
-        { src: './images/g-7.webp', alt: 'M+T 7' },
-        { src: './images/g-8.webp', alt: 'M+T 8' },
-        { src: './images/g-9.webp', alt: 'M+T 9' },
-        { src: './images/g-10.webp', alt: 'M+T 10' },
-        { src: './images/g-11.webp', alt: 'M+T 11' },
-        { src: './images/g-12.webp', alt: 'M+T 12' },
-        { src: './images/g-13.webp', alt: 'M+T 13' },
-        { src: './images/g-14.webp', alt: 'M+T 14' },
-        { src: './images/g-15.webp', alt: 'M+T 15' },
+        { src: '../images/g-1.webp', alt: 'M+T 1' },
+        { src: '../images/g-2.webp', alt: 'M+T 2' },
+        { src: '../images/g-3.webp', alt: 'M+T 3' },
+        { src: '../images/g-4.webp', alt: 'M+T 4' },
+        { src: '../images/g-5.webp', alt: 'M+T 5' },
+        { src: '../images/g-6.webp', alt: 'M+T 6' },
+        { src: '../images/g-7.webp', alt: 'M+T 7' },
+        { src: '../images/g-8.webp', alt: 'M+T 8' },
+        { src: '../images/g-9.webp', alt: 'M+T 9' },
+        { src: '../images/g-10.webp', alt: 'M+T 10' },
+        { src: '../images/g-11.webp', alt: 'M+T 11' },
+        { src: '../images/g-12.webp', alt: 'M+T 12' },
+        { src: '../images/g-13.webp', alt: 'M+T 13' },
+        { src: '../images/g-14.webp', alt: 'M+T 14' },
+        { src: '../images/g-15.webp', alt: 'M+T 15' },
       ];
 
       const dynamicEl = useMemo(() => allPhotos.map(p => ({ src: p.src, thumb: p.src })), []);
@@ -467,7 +648,7 @@
 
     // --- Wedding Gift ---
     const WeddingGiftSection = ({ t }) => {
-      const qrPhoto = { src: './images/bank_qr.webp', alt: 'Bank QR Code' };
+      const qrPhoto = { src: '../images/bank_qr.webp', alt: 'Bank QR Code' };
 
       const openQrGallery = () => {
         // Load only when the library is present (scripts are deferred)
@@ -535,7 +716,7 @@
                 title="Click to enlarge QR code"
               >
                 <img
-                  src="./images/bank_qr.webp"
+                  src="../images/bank_qr.webp"
                   alt="Bank QR Code"
                   className="w-48 max-w-full rounded-xl shadow-lg border border-accent mb-4 photo-gallery-img"
                   style={{ background: '#fff' }}
@@ -562,11 +743,11 @@
 
     (function bootstrap() {
       // Try to fetch translations.json first
-      fetch('./translations.json')
+      fetch('../translations.json')
         .then(res => res.json())
         .then(translationsData => {
           function App() {
-            const [isInvitationOpen, setIsInvitationOpen] = React.useState(false);
+            const [isInvitationOpen, setIsInvitationOpen] = React.useState(true);
             const [isPlaying, setIsPlaying] = React.useState(false);
             const audioRef = React.useRef(null);
             const [showFloating, setShowFloating] = React.useState(false);
@@ -612,8 +793,9 @@
 
             const handleOpenInvitation = () => {
               setIsInvitationOpen(true);
-              audioRef.current.play().catch(e => console.error("Autoplay failed", e));
-              setIsPlaying(true);
+              // TODO: audioRef.current.play().catch(e => console.error("Autoplay failed", e));
+              // TODO: setIsPlaying(true);
+              setIsPlaying(false);
             };
             const handlePlayPause = () => {
               if (isPlaying) {
