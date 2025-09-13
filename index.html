@@ -108,7 +108,10 @@
     // --- Music ---
     const MusicPlayer = ({ audioRef, isPlaying, onPlayPause }) => (
       <div id="music-player" className="fixed bottom-4 left-4 z-40">
-        <audio ref={audioRef} src="https://cdn.pixabay.com/download/audio/2025/06/09/audio_ffe6e5f7d0.mp3?filename=romantic-wedding-background-music-357203.mp3" loop></audio>
+        <audio ref={audioRef} loop preload="auto">
+          <source src="./audio/music.m4a" type="audio/mp4" />
+          <source src="./audio/music.mp3" type="audio/mpeg" />
+        </audio>
         <button
           onClick={onPlayPause}
           className="w-12 h-12 bg-[#A8876E] text-white rounded-full flex items-center justify-center shadow-lg ring-2 ring-accent pulse-glow backdrop-blur-sm"
