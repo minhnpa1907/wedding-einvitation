@@ -9,6 +9,9 @@
   <title>Wedding of Minh ♥ Trinh</title>
 
   <!-- Chosen Palette: Warm Neutrals & Soft Gold -->
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="preload" as="image" href="./images/header.webp">
+  <link rel="preload" href="./translations.json" as="fetch" crossorigin="anonymous">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -27,8 +30,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.8.2/css/lightgallery-bundle.min.css" />
 
   <!-- React UMD + Babel (dev friendly) -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <link rel="stylesheet" href="style.min.css">
@@ -353,24 +356,24 @@
     // --- Gallery ---
     const GallerySection = ({ t }) => {
       const allPhotos = [
-        { src: './images/g-1.webp', alt: 'M+T 1' },
-        { src: './images/g-2.webp', alt: 'M+T 2' },
-        { src: './images/g-3.webp', alt: 'M+T 3' },
-        { src: './images/g-4.webp', alt: 'M+T 4' },
-        { src: './images/g-5.webp', alt: 'M+T 5' },
-        { src: './images/g-6.webp', alt: 'M+T 6' },
-        { src: './images/g-7.webp', alt: 'M+T 7' },
-        { src: './images/g-8.webp', alt: 'M+T 8' },
-        { src: './images/g-9.webp', alt: 'M+T 9' },
-        { src: './images/g-10.webp', alt: 'M+T 10' },
-        { src: './images/g-11.webp', alt: 'M+T 11' },
-        { src: './images/g-12.webp', alt: 'M+T 12' },
-        { src: './images/g-13.webp', alt: 'M+T 13' },
-        { src: './images/g-14.webp', alt: 'M+T 14' },
-        { src: './images/g-15.webp', alt: 'M+T 15' },
+        { src: './images/g-1.webp', thumb: './images/thumb/gt-1.webp', alt: 'M_T_1' },
+        { src: './images/g-2.webp', thumb: './images/thumb/gt-2.webp', alt: 'M_T_2' },
+        { src: './images/g-3.webp', thumb: './images/thumb/gt-3.webp', alt: 'M_T_3' },
+        { src: './images/g-4.webp', thumb: './images/thumb/gt-4.webp', alt: 'M_T_4' },
+        { src: './images/g-5.webp', thumb: './images/thumb/gt-5.webp', alt: 'M_T_5' },
+        { src: './images/g-6.webp', thumb: './images/thumb/gt-6.webp', alt: 'M_T_6' },
+        { src: './images/g-7.webp', thumb: './images/thumb/gt-7.webp', alt: 'M_T_7' },
+        { src: './images/g-8.webp', thumb: './images/thumb/gt-8.webp', alt: 'M_T_8' },
+        { src: './images/g-9.webp', thumb: './images/thumb/gt-9.webp', alt: 'M_T_9' },
+        { src: './images/g-10.webp', thumb: './images/thumb/gt-10.webp', alt: 'M_T_10' },
+        { src: './images/g-11.webp', thumb: './images/thumb/gt-11.webp', alt: 'M_T_11' },
+        { src: './images/g-12.webp', thumb: './images/thumb/gt-12.webp', alt: 'M_T_12' },
+        { src: './images/g-13.webp', thumb: './images/thumb/gt-13.webp', alt: 'M_T_13' },
+        { src: './images/g-14.webp', thumb: './images/thumb/gt-14.webp', alt: 'M_T_14' },
+        { src: './images/g-15.webp', thumb: './images/thumb/gt-15.webp', alt: 'M_T_15' },
       ];
 
-      const dynamicEl = useMemo(() => allPhotos.map(p => ({ src: p.src, thumb: p.src })), []);
+      const dynamicEl = useMemo(() => allPhotos.map(p => ({ src: p.src, thumb: p.thumb })), []);
       const lgRef = useRef(null);
 
       function openGallery(startIndex = 0) {
@@ -448,7 +451,7 @@
                 title="Open in lightbox"
               >
                 <img
-                  src={photo.src}
+                  src={photo.thumb}
                   alt={photo.alt}
                   className="photo-gallery-img rounded-lg w-full h-full object-cover smooth-animation"
                   style={{ aspectRatio: '3/ 4', objectFit: 'cover' }}
