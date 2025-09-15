@@ -9,9 +9,9 @@
   <title>Wedding of Minh ♥ Trinh</title>
 
   <!-- Chosen Palette: Warm Neutrals & Soft Gold -->
-  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-  <link rel="preload" as="image" href="../images/header.webp">
-  <link rel="preload" href="../translations.json" as="fetch" crossorigin="anonymous">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="preload" as="image" href="./images/header.webp">
+  <link rel="preload" href="./translations.json" as="fetch" crossorigin="anonymous">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,192 +30,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.8.2/css/lightgallery-bundle.min.css" />
 
   <!-- React UMD + Babel (dev friendly) -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <style>
-    :root {
-      --bg-primary: #FDFBF8;
-      --bg-secondary: #F1EBE5;
-      --accent: #A8876E;
-      --text: #5D5D5D;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-    }
-
-    body.no-scroll {
-      overflow: hidden;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .font-display {
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .bg-primary {
-      background-color: var(--bg-primary);
-    }
-
-    .bg-secondary {
-      background-color: var(--bg-secondary);
-    }
-
-    .text-accent {
-      color: var(--accent);
-    }
-
-    .border-accent {
-      border-color: var(--accent);
-    }
-
-    .ring-accent {
-      ring-color: var(--accent);
-    }
-
-    .btn-primary {
-      background-color: var(--accent);
-      color: #FFFFFF;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px -5px rgba(168, 135, 110, 0.5);
-    }
-
-    .btn-primary:hover {
-      background-color: #8E6F58;
-      box-shadow: 0 6px 20px -5px rgba(168, 135, 110, 0.7);
-      transform: translateY(-2px);
-    }
-
-    .photo-gallery-img {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .photo-gallery-img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
-    }
-
-    #invitation-overlay {
-      transition: opacity 1s ease;
-    }
-
-    #main-content {
-      transition: opacity 1s ease;
-    }
-
-    @keyframes pulse-glow {
-      0% {
-        box-shadow: 0 0 0 0 rgba(168, 135, 110, 0.7), 0 0 16px 4px #fff3;
-      }
-
-      70% {
-        box-shadow: 0 0 0 12px rgba(168, 135, 110, 0), 0 0 32px 8px #fff6;
-      }
-
-      100% {
-        box-shadow: 0 0 0 0 rgba(168, 135, 110, 0.7), 0 0 16px 4px #fff3;
-      }
-    }
-
-    .pulse-glow {
-      animation: pulse-glow 2s infinite;
-    }
-
-    /* Mini calendar */
-    .mini-calendar {
-      width: 100%;
-      max-width: 420px;
-      font-family: 'Montserrat', arial, sans-serif;
-    }
-
-    .mini-calendar .calendar-table td,
-    .mini-calendar .calendar-table th {
-      width: 60px;
-      text-align: center;
-      box-sizing: border-box;
-      vertical-align: middle;
-    }
-
-    .mini-calendar .calendar-table thead th {
-      height: 42px;
-      border-top: 1px solid var(--accent);
-      border-bottom: 1px solid var(--accent);
-    }
-
-    .mini-calendar .calendar-table tbody td {
-      height: 40px;
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-
-    .mini-calendar .calendar-table .selected-day {
-      background: var(--accent);
-      color: var(--bg-primary);
-      font-weight: 900;
-      display: inline-block;
-      width: 40px;
-      line-height: 38px;
-      border-radius: 50%;
-    }
-
-    /* Stronger highlight for the current slide’s thumbnail in lightGallery */
-    .lg-thumb-outer .lg-thumb-item.active {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-      box-shadow: 0 0 0 3px rgba(168, 135, 110, .35);
-      filter: none;
-      /* if you use grayscale on thumbs */
-      border-color: var(--accent) !important;
-    }
-
-    /* Performance optimizations for mobile */
-    @media (max-width: 768px) {
-
-      /* Disable fixed background attachments on mobile */
-      .bg-fixed {
-        background-attachment: scroll !important;
-      }
-
-      /* Optimize image rendering */
-      img {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-      }
-
-      /* Reduce transition durations on mobile */
-      .btn-primary,
-      .photo-gallery-img {
-        transition: all 0.2s ease;
-      }
-
-      /* Disable hover effects on mobile */
-      .btn-primary:hover,
-      .photo-gallery-img:hover {
-        transform: none;
-        box-shadow: 0 4px 15px -5px rgba(168, 135, 110, 0.5);
-      }
-    }
-
-    /* Hardware acceleration for smooth animations */
-    .smooth-animation {
-      transform: translateZ(0);
-      backface-visibility: hidden;
-      perspective: 1000px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.min.css">
 </head>
 
 <body>
@@ -290,8 +109,8 @@
     const MusicPlayer = ({ audioRef, isPlaying, onPlayPause }) => (
       <div id="music-player" className="fixed bottom-4 left-4 z-40">
         <audio ref={audioRef} loop preload="auto">
-          <source src="../audio/music.m4a" type="audio/mp4" />
-          <source src="../audio/music.mp3" type="audio/mpeg" />
+          <source src="./audio/music.m4a" type="audio/mp4" />
+          <source src="./audio/music.mp3" type="audio/mpeg" />
         </audio>
         <button
           onClick={onPlayPause}
@@ -362,7 +181,7 @@
 
     // --- Header ---
     const Header = ({ t }) => (
-      <header className="h-screen bg-cover bg-center bg-fixed md:bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('../images/header.webp')" }}>
+      <header className="h-screen bg-cover bg-center bg-fixed md:bg-fixed flex items-center justify-center text-white" style={{ backgroundImage: "url('./images/header.webp')" }}>
         <div className="h-screen bg-black/40 inset-0 absolute"></div>
         <div className="relative text-center p-4" data-aos="fade-in" data-aos-delay="500">
           <p className="text-lg md:text-2xl font-light">{t.inform}</p>
@@ -379,14 +198,14 @@
         <div className="w-24 h-1 bg-accent/30 mx-auto my-6" data-aos="fade-up" data-aos-delay="100"></div>
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-center mt-12">
           <div className="text-center" data-aos="fade-right" data-aos-delay="200">
-            <img src="../images/groom.webp" alt="The Groom" className="w-80 h-80 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="512" height="512" loading="lazy" decoding="async" />
+            <img src="./images/groom.webp" alt="The Groom" className="w-80 h-80 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="512" height="512" loading="lazy" decoding="async" />
             <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">{t.groom}</h3>
             <p className="mt-2 text-xs md:text-base">{t.sonOf}</p>
             <p className="mt-2 text-sm md:text-base font-semibold">{t.groomFather}</p>
             <p className="mt-2 text-sm md:text-base font-semibold">{t.groomMother}</p>
           </div>
           <div className="text-center mt-8 md:mt-0" data-aos="fade-left" data-aos-delay="200">
-            <img src="../images/bride.webp" alt="The Bride" className="w-80 h-80 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="512" height="512" loading="lazy" decoding="async" />
+            <img src="./images/bride.webp" alt="The Bride" className="w-80 h-80 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="512" height="512" loading="lazy" decoding="async" />
             <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">{t.bride}</h3>
             <p className="mt-2 text-xs md:text-base">{t.daughterOf}</p>
             <p className="mt-2 text-sm md:text-base font-semibold">{t.brideFather}</p>
@@ -430,7 +249,7 @@
 
       return (
         <section id="countdown" className="bg-secondary text-center">
-          <div className="bg-cover bg-center bg-fixed md:bg-fixed py-16 md:py-20 text-white relative" style={{ backgroundImage: "url('../images/countdown_bg.webp')" }}>
+          <div className="bg-cover bg-center bg-fixed md:bg-fixed py-16 md:py-20 text-white relative" style={{ backgroundImage: "url('./images/countdown_bg.webp')" }}>
             <div className="bg-black/50 inset-0 absolute"></div>
             <div className="relative">
               <h2 className="text-3xl md:text-5xl font-display mb-8 px-2" data-aos="fade-up">{t.untilSayIDo}</h2>
@@ -493,42 +312,42 @@
             <div className="my-4 text-sm md:text-base">
               <div className="flex items-center justify-center mb-2">
                 <CalendarIcon />
-                <span>{t.marryDate}</span>
+                <span>{t.marryDate2}</span>
               </div>
               <div className="flex items-center justify-center">
                 <ClockIcon />
-                <span>{t.marryTime}</span>
+                <span>{t.marryTime2}</span>
               </div>
             </div>
             <p className="font-bold">{t.home}</p>
             <div className="text-sm">
               <div className="flex items-center justify-center">
                 <LocationIcon />
-                <span>{t.homeLocation}</span>
+                <span>{t.homeLocation2}</span>
               </div>
             </div>
-            <a href="https://maps.app.goo.gl/Lonv6J3RDdqQ9Y519" target="_blank" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">{t.viewMap}</a>
+            <a href="https://maps.app.goo.gl/SPDaAN9Lr3HwX7Jg9" target="_blank" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">{t.viewMap}</a>
           </div>
           <div className="bg-white p-4 md:p-8 rounded-lg shadow-lg mt-8 md:mt-0" data-aos="fade-up-left">
             <h3 className="text-2xl md:text-3xl font-display text-accent">{t.reception}</h3>
             <div className="my-4 text-sm md:text-base">
               <div className="flex items-center justify-center mb-2">
                 <CalendarIcon />
-                <span>{t.marryDate}</span>
+                <span>{t.marryDate2}</span>
               </div>
               <div className="flex items-center justify-center">
                 <ClockIcon />
-                <span>{t.receptionTime}</span>
+                <span>{t.receptionTime2}</span>
               </div>
             </div>
-            <p className="font-bold">{t.whitePalace}</p>
+            <p className="font-bold">{t.longVu}</p>
             <div className="text-sm">
               <div className="flex items-center justify-center">
                 <LocationIcon />
-                <span>{t.receptionLocation}</span>
+                <span>{t.homeLocation2}</span>
               </div>
             </div>
-            <a href="https://maps.app.goo.gl/L3SNTu5D35Rs38ts5" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">{t.viewMap}</a>
+            <a href="https://maps.app.goo.gl/CNNdFDfpXWfKXuYy9" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">{t.viewMap}</a>
           </div>
         </div>
       </section >
@@ -537,21 +356,21 @@
     // --- Gallery ---
     const GallerySection = ({ t }) => {
       const allPhotos = [
-        { src: '../images/g-1.webp', thumb: '../images/thumb/gt-1.webp', alt: 'M_T_1' },
-        { src: '../images/g-2.webp', thumb: '../images/thumb/gt-2.webp', alt: 'M_T_2' },
-        { src: '../images/g-3.webp', thumb: '../images/thumb/gt-3.webp', alt: 'M_T_3' },
-        { src: '../images/g-4.webp', thumb: '../images/thumb/gt-4.webp', alt: 'M_T_4' },
-        { src: '../images/g-5.webp', thumb: '../images/thumb/gt-5.webp', alt: 'M_T_5' },
-        { src: '../images/g-6.webp', thumb: '../images/thumb/gt-6.webp', alt: 'M_T_6' },
-        { src: '../images/g-7.webp', thumb: '../images/thumb/gt-7.webp', alt: 'M_T_7' },
-        { src: '../images/g-8.webp', thumb: '../images/thumb/gt-8.webp', alt: 'M_T_8' },
-        { src: '../images/g-9.webp', thumb: '../images/thumb/gt-9.webp', alt: 'M_T_9' },
-        { src: '../images/g-10.webp', thumb: '../images/thumb/gt-10.webp', alt: 'M_T_10' },
-        { src: '../images/g-11.webp', thumb: '../images/thumb/gt-11.webp', alt: 'M_T_11' },
-        { src: '../images/g-12.webp', thumb: '../images/thumb/gt-12.webp', alt: 'M_T_12' },
-        { src: '../images/g-13.webp', thumb: '../images/thumb/gt-13.webp', alt: 'M_T_13' },
-        { src: '../images/g-14.webp', thumb: '../images/thumb/gt-14.webp', alt: 'M_T_14' },
-        { src: '../images/g-15.webp', thumb: '../images/thumb/gt-15.webp', alt: 'M_T_15' },
+        { src: './images/g-1.webp', thumb: './images/thumb/gt-1.webp', alt: 'M_T_1' },
+        { src: './images/g-2.webp', thumb: './images/thumb/gt-2.webp', alt: 'M_T_2' },
+        { src: './images/g-3.webp', thumb: './images/thumb/gt-3.webp', alt: 'M_T_3' },
+        { src: './images/g-4.webp', thumb: './images/thumb/gt-4.webp', alt: 'M_T_4' },
+        { src: './images/g-5.webp', thumb: './images/thumb/gt-5.webp', alt: 'M_T_5' },
+        { src: './images/g-6.webp', thumb: './images/thumb/gt-6.webp', alt: 'M_T_6' },
+        { src: './images/g-7.webp', thumb: './images/thumb/gt-7.webp', alt: 'M_T_7' },
+        { src: './images/g-8.webp', thumb: './images/thumb/gt-8.webp', alt: 'M_T_8' },
+        { src: './images/g-9.webp', thumb: './images/thumb/gt-9.webp', alt: 'M_T_9' },
+        { src: './images/g-10.webp', thumb: './images/thumb/gt-10.webp', alt: 'M_T_10' },
+        { src: './images/g-11.webp', thumb: './images/thumb/gt-11.webp', alt: 'M_T_11' },
+        { src: './images/g-12.webp', thumb: './images/thumb/gt-12.webp', alt: 'M_T_12' },
+        { src: './images/g-13.webp', thumb: './images/thumb/gt-13.webp', alt: 'M_T_13' },
+        { src: './images/g-14.webp', thumb: './images/thumb/gt-14.webp', alt: 'M_T_14' },
+        { src: './images/g-15.webp', thumb: './images/thumb/gt-15.webp', alt: 'M_T_15' },
       ];
 
       const dynamicEl = useMemo(() => allPhotos.map(p => ({ src: p.src, thumb: p.thumb })), []);
@@ -651,7 +470,7 @@
 
     // --- Wedding Gift ---
     const WeddingGiftSection = ({ t }) => {
-      const qrPhoto = { src: '../images/bank_qr.webp', alt: 'Bank QR Code' };
+      const qrPhoto = { src: './images/bank_qr.webp', alt: 'Bank QR Code' };
 
       const openQrGallery = () => {
         // Load only when the library is present (scripts are deferred)
@@ -716,7 +535,7 @@
                 title="Click to enlarge QR code"
               >
                 <img
-                  src="../images/bank_qr.webp"
+                  src="./images/bank_qr.webp"
                   alt="Bank QR Code"
                   className="w-48 max-w-full rounded-xl shadow-lg border border-accent mb-4 photo-gallery-img"
                   style={{ background: '#fff' }}
@@ -743,11 +562,11 @@
 
     (function bootstrap() {
       // Try to fetch translations.json first
-      fetch('../translations.json')
+      fetch('./translations.json')
         .then(res => res.json())
         .then(translationsData => {
           function App() {
-            const [isInvitationOpen, setIsInvitationOpen] = React.useState(true);
+            const [isInvitationOpen, setIsInvitationOpen] = React.useState(false);
             const [isPlaying, setIsPlaying] = React.useState(false);
             const audioRef = React.useRef(null);
             const [showFloating, setShowFloating] = React.useState(false);
@@ -793,9 +612,8 @@
 
             const handleOpenInvitation = () => {
               setIsInvitationOpen(true);
-              // TODO: audioRef.current.play().catch(e => console.error("Autoplay failed", e));
-              // TODO: setIsPlaying(true);
-              setIsPlaying(false);
+              audioRef.current.play().catch(e => console.error("Autoplay failed", e));
+              setIsPlaying(true);
             };
             const handlePlayPause = () => {
               if (isPlaying) {
