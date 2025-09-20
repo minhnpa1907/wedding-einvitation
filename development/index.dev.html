@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>Wedding of Minh ♥ Trinh</title>
+  <title>Wedding of Minh ❤ Trinh</title>
 
   <!-- Chosen Palette: Warm Neutrals & Soft Gold -->
-  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="preload" as="image" href="../images/header.webp">
   <link rel="preload" href="../translations.json" as="fetch" crossorigin="anonymous">
 
@@ -17,17 +17,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" crossorigin="anonymous" />
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&family=Bonheur+Royale:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" crossorigin="anonymous">
 
   <!-- Animate on Scroll (CSS) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <!-- lightGallery (Lightbox) CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.8.2/css/lightgallery-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.8.2/css/lightgallery-bundle.min.css">
 
   <!-- React UMD + Babel (dev friendly) -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -64,6 +64,10 @@
     h6,
     .font-display {
       font-family: 'Cormorant Garamond', serif;
+    }
+
+    .couple-font {
+      font-family: 'Bonheur Royale', cursive !important;
     }
 
     .bg-primary {
@@ -278,9 +282,9 @@
       <div id="invitation-overlay" className="fixed inset-0 bg-primary z-50 flex flex-col items-center justify-center text-center p-4">
         <div data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl font-display text-accent">{t.invitation}</h2>
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">Anh Minh</h1>
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">♥</h1>
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">Thanh Trinh</h1>
+          <h1 className="couple-font text-6xl sm:text-7xl md:text-9xl font-display my-4">Anh Minh</h1>
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-display my-4">❤</h1>
+          <h1 className="couple-font text-6xl sm:text-7xl md:text-9xl font-display my-4">Thanh Trinh</h1>
           <button onClick={onOpen} className="btn-primary font-display text-lg md:text-xl px-8 py-3 rounded-full">{t.openInvitation}</button>
         </div>
       </div>
@@ -366,7 +370,7 @@
         <div className="h-screen bg-black/40 inset-0 absolute"></div>
         <div className="relative text-center p-4" data-aos="fade-in" data-aos-delay="500">
           <p className="text-lg md:text-2xl font-light">{t.inform}</p>
-          <h1 className="text-6xl sm:text-7xl md:text-9xl font-display my-2">Minh ♥ Trinh</h1>
+          <h1 className="couple-font text-7xl sm:text-8xl md:text-10xl font-display my-2">Minh & Trinh</h1>
           <p className="text-lg md:text-2xl font-light">{t.marryDate}</p>
         </div>
       </header>
@@ -380,14 +384,14 @@
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-center mt-12">
           <div className="text-center" data-aos="fade-right" data-aos-delay="200">
             <img src="../images/groom.webp" alt="The Groom" className="w-80 h-80 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="512" height="512" loading="lazy" decoding="async" />
-            <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">{t.groom}</h3>
+            <h3 className="couple-font text-4xl md:text-5xl font-display mt-6 text-accent">{t.groom}</h3>
             <p className="mt-2 text-xs md:text-base">{t.sonOf}</p>
             <p className="mt-2 text-sm md:text-base font-semibold">{t.groomFather}</p>
             <p className="mt-2 text-sm md:text-base font-semibold">{t.groomMother}</p>
           </div>
           <div className="text-center mt-8 md:mt-0" data-aos="fade-left" data-aos-delay="200">
             <img src="../images/bride.webp" alt="The Bride" className="w-80 h-80 rounded-full mx-auto object-cover shadow-xl smooth-animation" width="512" height="512" loading="lazy" decoding="async" />
-            <h3 className="text-3xl md:text-4xl font-display mt-6 text-accent">{t.bride}</h3>
+            <h3 className="couple-font text-4xl md:text-5xl font-display mt-6 text-accent">{t.bride}</h3>
             <p className="mt-2 text-xs md:text-base">{t.daughterOf}</p>
             <p className="mt-2 text-sm md:text-base font-semibold">{t.brideFather}</p>
             <p className="mt-2 text-sm md:text-base font-semibold">{t.brideMother}</p>
@@ -399,7 +403,7 @@
     // --- Countdown ---
     const Countdown = ({ t }) => {
       const calculateTimeLeft = () => {
-        const difference = +new Date("2025-10-19T14:00:00") - +new Date();
+        const difference = +new Date("2025-10-19T11:00:00") - +new Date();
         let timeLeft = {};
         if (difference > 0) {
           timeLeft = {
@@ -500,13 +504,13 @@
                 <span>{t.marryTime}</span>
               </div>
             </div>
-            <p className="font-bold">{t.home}</p>
-            <div className="text-sm">
+            <div className="font-bold">
               <div className="flex items-center justify-center">
                 <LocationIcon />
-                <span>{t.homeLocation}</span>
+                <span>{t.home}</span>
               </div>
             </div>
+            <p className="text-sm">{t.homeLocation}</p>
             <a href="https://maps.app.goo.gl/Lonv6J3RDdqQ9Y519" target="_blank" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">{t.viewMap}</a>
           </div>
           <div className="bg-white p-4 md:p-8 rounded-lg shadow-lg mt-8 md:mt-0" data-aos="fade-up-left">
@@ -521,13 +525,13 @@
                 <span>{t.receptionTime}</span>
               </div>
             </div>
-            <p className="font-bold">{t.whitePalace}</p>
-            <div className="text-sm">
+            <div className="font-bold">
               <div className="flex items-center justify-center">
                 <LocationIcon />
-                <span>{t.receptionLocation}</span>
+                <span>{t.whitePalace}</span>
               </div>
             </div>
+            <p className="text-sm">{t.receptionLocation}</p>
             <a href="https://maps.app.goo.gl/L3SNTu5D35Rs38ts5" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 btn-primary text-sm px-6 py-2 rounded-full">{t.viewMap}</a>
           </div>
         </div>
@@ -551,7 +555,7 @@
         { src: '../images/g-12.webp', thumb: '../images/thumb/gt-12.webp', alt: 'M_T_12' },
         { src: '../images/g-13.webp', thumb: '../images/thumb/gt-13.webp', alt: 'M_T_13' },
         { src: '../images/g-14.webp', thumb: '../images/thumb/gt-14.webp', alt: 'M_T_14' },
-        { src: '../images/g-15.webp', thumb: '../images/thumb/gt-15.webp', alt: 'M_T_15' },
+        { src: '../images/g-15.webp', thumb: '../images/thumb/gt-15.webp', alt: 'M_T_15' }
       ];
 
       const dynamicEl = useMemo(() => allPhotos.map(p => ({ src: p.src, thumb: p.thumb })), []);
@@ -737,7 +741,7 @@
     const Footer = ({ t }) => (
       <footer className="text-center py-8 bg-secondary">
         <h3 className="text-3xl md:text-4xl font-display text-accent">{t.thankYouFooter}</h3>
-        <p className="mt-2">{t.coupleFooter}</p>
+        <p className="mt-2">-- Anh Minh ❤ Thanh Trinh --</p>
       </footer>
     );
 
