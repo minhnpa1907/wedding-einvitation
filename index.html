@@ -611,6 +611,7 @@
             }, [isInvitationOpen]);
 
             const handleOpenInvitation = () => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
               setIsInvitationOpen(true);
               audioRef.current.play().catch(e => console.error("Autoplay failed", e));
               setIsPlaying(true);
